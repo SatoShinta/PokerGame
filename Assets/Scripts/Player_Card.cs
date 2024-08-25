@@ -1,19 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Card : MonoBehaviour
 {
-    [SerializeField, Header("カードの位置")] GameObject[] _playerCardPos;
+    [SerializeField, Header("カードの位置")] private GameObject[] _playerCardPos;
+    [SerializeField] private GameObject _playerCard;
 
+    [SerializeField] private float _spawnInterval = 0.5f;
+    // int _spawnCount = 3;
 
-    void Start()
+    IEnumerator SpawnCoroutine()
     {
-        
+        foreach (var pos in _playerCardPos)
+        {
+            yield return new WaitForSeconds(_spawnInterval);
+            Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
+        }
     }
 
-    void Update()
+    private void Start()
     {
-        
+        StartCoroutine(SpawnCoroutine());
     }
 }

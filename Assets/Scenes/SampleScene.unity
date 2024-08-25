@@ -292,6 +292,7 @@ MonoBehaviour:
   - {fileID: 1576202441}
   - {fileID: 902889672}
   - {fileID: 800959191}
+  _playerCard: {fileID: 7927054229409693393, guid: 3d1117b9fcec4734289dda70af5b6b55, type: 3}
 --- !u!4 &534349249
 Transform:
   m_ObjectHideFlags: 0
