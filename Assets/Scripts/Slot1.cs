@@ -7,17 +7,24 @@ public class Slot1 : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite[] card;
+    Animator animator;
+
 
     public void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
+    public void Update()
+    {
+       
+    }
 
+    //ランダムなsprite（card配列の中にあるもの）に変更する
     public void CangeSprite()
     {
         int randomIndex = Random.Range(0,53);
-
         spriteRenderer.sprite = card[randomIndex];
     }
 
