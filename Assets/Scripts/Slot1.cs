@@ -24,7 +24,7 @@ public class Slot1 : MonoBehaviour
     //ランダムなsprite（card配列の中にあるもの）に変更する
     public void CangeSprite()
     {
-        int randomIndex = Random.Range(0,53);
+        int randomIndex = Random.Range(0, card.Length);
         spriteRenderer.sprite = card[randomIndex];
     }
 
