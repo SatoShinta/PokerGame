@@ -8,7 +8,7 @@ public class SlotStop : MonoBehaviour
 
     void Start()
     {
-        //slotsの中にアルオブジェクトの分の配列を作成
+        //slotsの中にあるオブジェクトの分の配列を作成
         slotAnimator = new Animator[slots.Length];
 
         //slotsがある分for文を回す（配列の中にあるオブジェクトのアニメーターを取得）
