@@ -20,6 +20,7 @@ public class Player_Card : MonoBehaviour
             //_spawnInterval‚ÌŠÔ•ª‚¾‚¯Às‚ğ‘Ò‚Â
             yield return new WaitForSeconds(_spawnInterval);
 
+            //èD‚É—ˆ‚éŠG•¿‚ğƒ‰ƒ“ƒ_ƒ€‚É‚·‚é
             int randomIndex = Random.Range(0, _playerCardSprite.Length);
             spriteRenderer.sprite = _playerCardSprite[randomIndex];
 
