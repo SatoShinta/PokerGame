@@ -40,6 +40,12 @@ public class SlotStop : MonoBehaviour
                 case 3:
                     slotAnimator[2].Play("stop3");
                     break;
+          Å@Å@Å@case 4:
+                    slotAnimator[3].Play("stop4");
+                    break;
+                case 5:
+                    slotAnimator[4].Play("stop5");
+                    break;
             }
         }
     }
