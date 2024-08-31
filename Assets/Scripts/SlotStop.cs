@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlotStop : MonoBehaviour
 {
     [SerializeField, Header("ÉXÉçÉbÉg")] GameObject[] slots;
-   public Animator[] slotAnimator;
+    public Animator[] slotAnimator;
     public int pushCounter;
 
     void Start()
@@ -15,12 +13,12 @@ public class SlotStop : MonoBehaviour
         {
             slotAnimator[i] = slots[i].GetComponent<Animator>();
         }
-        pushCounter = 0; 
+        pushCounter = 0;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             pushCounter++;
 
