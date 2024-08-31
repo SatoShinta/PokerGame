@@ -291,7 +291,6 @@ MonoBehaviour:
   _playerCardPos:
   - {fileID: 1576202441}
   - {fileID: 902889672}
-  - {fileID: 800959191}
   _playerCard: {fileID: 8141438932736508152, guid: c5fe6137d2e9e5e44831211dca79830b, type: 3}
   _playerCardSprite:
   - {fileID: 21300000, guid: 5d63aba04e936914d8a4da2d6463abe4, type: 3}
@@ -616,37 +615,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 536c4420617abc54b92cf2439f666b8b, type: 3}
   - {fileID: 21300000, guid: 2383fbc036a412a46ab693927bdd28f0, type: 3}
   - {fileID: 21300000, guid: eb6db28121fac0048819551c970c480f, type: 3}
---- !u!1 &800959191
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 800959192}
-  m_Layer: 0
-  m_Name: cardposition (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &800959192
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800959191}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1031876275}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &902889672
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +677,6 @@ Transform:
   m_Children:
   - {fileID: 1576202442}
   - {fileID: 902889673}
-  - {fileID: 800959192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1339815701
@@ -909,7 +876,7 @@ Transform:
   m_GameObject: {fileID: 1576202441}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
