@@ -1,10 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Slot1 : MonoBehaviour
 {
-    public void CangeColor()
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] card;
+
+    public void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+
+    public void CangeSprite()
+    {
+        int randomIndex = Random.Range(0,53);
+
+        spriteRenderer.sprite = card[randomIndex];
+    }
+
+
+
+
+
+
+
+
+  /*  public void CangeColor()
     {
         //ƒ‰ƒ“ƒ_ƒ€‚ÈF‚Ì’l‚ğŒˆ’è‚·‚é
         float r = Random.Range(0f, 1f);
@@ -25,7 +49,7 @@ public class Slot1 : MonoBehaviour
         {
             Debug.Log("‚Í‚¢‚Á‚Ä‚È‚¢");
         }
-    }
+    }*/
 
    
 }
