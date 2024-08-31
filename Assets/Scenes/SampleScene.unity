@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 396761725}
   - component: {fileID: 396761724}
   - component: {fileID: 396761723}
+  - component: {fileID: 396761727}
   m_Layer: 0
   m_Name: slot5
   m_TagString: Untagged
@@ -184,6 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4d79d33af3cbe458a57947496b45b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriterenderer: {fileID: 0}
+  nowSprite: {fileID: 0}
   card:
   - {fileID: 21300000, guid: 5d63aba04e936914d8a4da2d6463abe4, type: 3}
   - {fileID: 21300000, guid: c36dd261047acc640b6f56def883966f, type: 3}
@@ -325,6 +328,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 868884984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &396761727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396761722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1530c22b31b46214a81b49b3d5c7799e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotCardSpriteNow: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +675,7 @@ GameObject:
   - component: {fileID: 754976894}
   - component: {fileID: 754976893}
   - component: {fileID: 754976896}
+  - component: {fileID: 754976897}
   m_Layer: 0
   m_Name: slot1
   m_TagString: Untagged
@@ -766,6 +783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4d79d33af3cbe458a57947496b45b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriterenderer: {fileID: 0}
+  nowSprite: {fileID: 0}
   card:
   - {fileID: 21300000, guid: 5d63aba04e936914d8a4da2d6463abe4, type: 3}
   - {fileID: 21300000, guid: c36dd261047acc640b6f56def883966f, type: 3}
@@ -819,6 +838,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 536c4420617abc54b92cf2439f666b8b, type: 3}
   - {fileID: 21300000, guid: 2383fbc036a412a46ab693927bdd28f0, type: 3}
   - {fileID: 21300000, guid: eb6db28121fac0048819551c970c480f, type: 3}
+--- !u!114 &754976897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754976892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1530c22b31b46214a81b49b3d5c7799e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotCardSpriteNow: {fileID: 0}
 --- !u!1 &868884983
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +963,7 @@ GameObject:
   - component: {fileID: 1339815704}
   - component: {fileID: 1339815703}
   - component: {fileID: 1339815702}
+  - component: {fileID: 1339815706}
   m_Layer: 0
   m_Name: slot3
   m_TagString: Untagged
@@ -950,6 +983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4d79d33af3cbe458a57947496b45b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriterenderer: {fileID: 0}
+  nowSprite: {fileID: 0}
   card:
   - {fileID: 21300000, guid: 5d63aba04e936914d8a4da2d6463abe4, type: 3}
   - {fileID: 21300000, guid: c36dd261047acc640b6f56def883966f, type: 3}
@@ -1091,6 +1126,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 868884984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339815706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339815701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1530c22b31b46214a81b49b3d5c7799e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotCardSpriteNow: {fileID: 0}
 --- !u!1 &1576202441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1182,7 @@ GameObject:
   - component: {fileID: 1775182961}
   - component: {fileID: 1775182960}
   - component: {fileID: 1775182959}
+  - component: {fileID: 1775182963}
   m_Layer: 0
   m_Name: slot4
   m_TagString: Untagged
@@ -1153,6 +1202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4d79d33af3cbe458a57947496b45b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriterenderer: {fileID: 0}
+  nowSprite: {fileID: 0}
   card:
   - {fileID: 21300000, guid: 5d63aba04e936914d8a4da2d6463abe4, type: 3}
   - {fileID: 21300000, guid: c36dd261047acc640b6f56def883966f, type: 3}
@@ -1294,6 +1345,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 868884984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1775182963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775182958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1530c22b31b46214a81b49b3d5c7799e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotCardSpriteNow: {fileID: 0}
 --- !u!1 &1941584092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,8 +1393,15 @@ MonoBehaviour:
   - {fileID: 1339815701}
   - {fileID: 1775182958}
   - {fileID: 396761722}
+  _playerCardSpriteNow: []
   slotAnimator: []
   pushCounter: 0
+  SSS:
+  - {fileID: 754976897}
+  - {fileID: 1956492657}
+  - {fileID: 1339815706}
+  - {fileID: 1775182963}
+  - {fileID: 396761727}
 --- !u!4 &1941584094
 Transform:
   m_ObjectHideFlags: 0
@@ -1358,6 +1429,7 @@ GameObject:
   - component: {fileID: 1956492655}
   - component: {fileID: 1956492654}
   - component: {fileID: 1956492653}
+  - component: {fileID: 1956492657}
   m_Layer: 0
   m_Name: slot2
   m_TagString: Untagged
@@ -1377,6 +1449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4d79d33af3cbe458a57947496b45b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriterenderer: {fileID: 0}
+  nowSprite: {fileID: 0}
   card:
   - {fileID: 21300000, guid: 5d63aba04e936914d8a4da2d6463abe4, type: 3}
   - {fileID: 21300000, guid: c36dd261047acc640b6f56def883966f, type: 3}
@@ -1518,14 +1592,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 868884984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1956492657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956492652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1530c22b31b46214a81b49b3d5c7799e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotCardSpriteNow: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1941584094}
   - {fileID: 91973507}
   - {fileID: 619394802}
   - {fileID: 534349249}
   - {fileID: 1031876275}
+  - {fileID: 1941584094}
   - {fileID: 868884984}
