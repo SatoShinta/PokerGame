@@ -292,7 +292,7 @@ MonoBehaviour:
   - {fileID: 1576202441}
   - {fileID: 902889672}
   - {fileID: 800959191}
-  _playerCard: {fileID: 7821967984173019403, guid: c7a4254797d3e6b4ab46783d0959ff37, type: 3}
+  _playerCard: {fileID: 8141438932736508152, guid: c5fe6137d2e9e5e44831211dca79830b, type: 3}
   _spawnInterval: 0.5
 --- !u!4 &534349249
 Transform:
