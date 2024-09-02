@@ -172,6 +172,8 @@ MonoBehaviour:
   - {fileID: 1339815701}
   - {fileID: 1775182958}
   - {fileID: 396761722}
+  _playerSprite: []
+  _slotSprite: []
 --- !u!1 &396761722
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +587,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: eb6db28121fac0048819551c970c480f, type: 3}
   _playerCardSpriteNow: []
   _spawnInterval: 0.5
+  pokerHundJuge: {fileID: 0}
 --- !u!4 &534349249
 Transform:
   m_ObjectHideFlags: 0
