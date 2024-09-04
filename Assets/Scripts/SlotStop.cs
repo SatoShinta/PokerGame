@@ -4,18 +4,12 @@ using UnityEngine;
 public class SlotStop : MonoBehaviour
 {
     [SerializeField, Header("スロット")] GameObject[] slots;
-    [SerializeField, Header("現在の絵柄")] public List<Sprite> _playerCardSpriteNow = new List<Sprite>();
     public Animator[] slotAnimator;
     public int pushCounter;
 
-    Slot1 slot1;
-   [SerializeField] SlotStopSprite[] SSS;
 
     void Start()
     {
-        slot1 = GetComponent<Slot1>();
-        SSS = GetComponents<SlotStopSprite>();
-
         //slotsの中にあるオブジェクトの分の配列を作成
         slotAnimator = new Animator[slots.Length];
 
@@ -33,10 +27,6 @@ public class SlotStop : MonoBehaviour
         //スペースキーが押されたとき、
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (SlotStopSprite sss in SSS)
-            {
-                _playerCardSpriteNow.Add(sss._slotCardSpriteNow);
-            }
             //pushCounterを＋１し、
             pushCounter++;
 
