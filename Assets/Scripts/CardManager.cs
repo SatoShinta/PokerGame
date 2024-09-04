@@ -1,9 +1,17 @@
 using System.Collections.Generic;
-using UnityEngine;
 
-public class CardManager : MonoBehaviour
+public static class CardManager
 {
-    public List<CardData> cards = new List<CardData>();
+    public static List<CardData> _selectedCards = new List<CardData>();
 
-   
+    public static bool IsSelected(CardData card)
+    {
+        return _selectedCards.Contains(card);
+    }
+
+    public static void AddSelectedCard(CardData card)
+    {
+        _selectedCards.Add(card);
+    }
+    //a
 }

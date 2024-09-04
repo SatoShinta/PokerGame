@@ -15,6 +15,8 @@ public class Slot1 : MonoBehaviour
 
     [SerializeField] private PokerHundJuge pokerHundJuge;
 
+    CardData card;
+
 
 
     public void Start()
@@ -29,7 +31,7 @@ public class Slot1 : MonoBehaviour
     {
         //カードの絵柄をランダムに選択し、その絵柄をスロットの目にする
         int slotRandomIndex = Random.Range(0, _cards.Count);
-        CardData card = _cards[slotRandomIndex];
+        card = _cards[slotRandomIndex];
         spriterenderer.sprite = card.sprite;
         nowSprite = spriterenderer.sprite;
         _cardRank = card.rank;
@@ -38,8 +40,22 @@ public class Slot1 : MonoBehaviour
 
     public void GetCardData()
     {
-        pokerHundJuge._slotRankJuge.Add(_cardRank);
-        pokerHundJuge._slotSuitJuge.Add(_cardSuit);
+        if (CardManager.IsSelected(card))
+        {
+            int slotRandomIndex = Random.Range(0, _cards.Count);
+            card = _cards[slotRandomIndex];
+            spriterenderer.sprite = card.sprite;
+            nowSprite = spriterenderer.sprite;
+            _cardRank = card.rank;
+            _cardSuit = card.suit;
+        }
+        else
+        {
+            CardManager.AddSelectedCard(card);
+            pokerHundJuge._slotRankJuge.Add(_cardRank);
+            pokerHundJuge._slotSuitJuge.Add(_cardSuit);
+           
+        }
     }
 
     

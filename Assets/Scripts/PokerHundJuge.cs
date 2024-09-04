@@ -8,9 +8,10 @@ public class PokerHundJuge : MonoBehaviour
     [SerializeField, Header("プレイヤーのcardのrank")] public List<CardData.Rank> _playerRankJuge = new List<CardData.Rank>();
     [SerializeField, Header("プレイヤーのcardのsuit")] public List<CardData.Suit> _playerSuitJuge = new List<CardData.Suit>();
 
-    [SerializeField, Header("スロットの絵柄")] Sprite[] _slotSprite;
+    [SerializeField, Header("スロットの絵柄")] public Sprite[] _slotSprite;
     [SerializeField, Header("スロットのrank")] public List<CardData.Rank> _slotRankJuge = new List<CardData.Rank>();
     [SerializeField, Header("スロットのsuit")] public List<CardData.Suit> _slotSuitJuge = new List<CardData.Suit>();
+    [SerializeField] List<CardData> cardDatas = CardManager._selectedCards;
 
     SlotStopSprite _slotStopSprite;
     Slot1 _slot1;
