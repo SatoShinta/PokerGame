@@ -1,11 +1,11 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Card", menuName = "Cards/Card")]
+[CreateAssetMenu]
 public class CardData : ScriptableObject
 {
     public Sprite sprite;
-    public int rank;
+    public Rank rank;
     public Suit suit;
 
     public enum Suit
@@ -14,6 +14,23 @@ public class CardData : ScriptableObject
         Diamonds,
         Hearts,
         Spades
+    }
+
+    public enum Rank
+    {
+        Ace,    
+        Two,
+        Three,
+        Four,
+        Five,
+        Six,
+        Seven,
+        Eight,
+        Nine,
+        Ten,
+        Jack,
+        Queen,
+        King,
     }
    
 }

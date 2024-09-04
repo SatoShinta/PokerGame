@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Club 1
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5d63aba04e936914d8a4da2d6463abe4, type: 3}
-  rank: 1
+  rank: 0
   suit: 0
