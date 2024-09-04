@@ -37,8 +37,11 @@ public class Player_Card : MonoBehaviour
             //Œ»İ‚ÌŠG•¿‚ğ“üè‚·‚é
             _playerCardSpriteNow.Add(card.sprite);
             pokerHundJuge._playerCardSpriteNow.Add(card.sprite);
+
             _cardRank.Add(card.rank);
             _cardSuit.Add(card.suit);
+            pokerHundJuge._playerRankJuge.Add(card.rank);
+            pokerHundJuge._playerSuitJuge.Add(card.suit);
 
             //_playerCard‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚ğ_playerCardPos‚ÌêŠ‚É¶¬‚·‚é
             Instantiate(_playerCard, pos.transform.position, Quaternion.identity);

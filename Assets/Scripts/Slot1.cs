@@ -12,7 +12,10 @@ public class Slot1 : MonoBehaviour
 
     [SerializeField,Header("cardのランク")] public CardData.Rank _cardRank;
     [SerializeField,Header("cardのスーツ")] public CardData.Suit _cardSuit;
-    
+
+    [SerializeField] private PokerHundJuge pokerHundJuge;
+
+
 
     public void Start()
     {
@@ -33,8 +36,14 @@ public class Slot1 : MonoBehaviour
         _cardSuit = card.suit;
     }
 
-   
-       
+    public void GetCardData()
+    {
+        pokerHundJuge._slotRankJuge.Add(_cardRank);
+        pokerHundJuge._slotSuitJuge.Add(_cardSuit);
+    }
+
+
+
 
 
 

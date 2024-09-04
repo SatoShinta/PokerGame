@@ -173,60 +173,11 @@ MonoBehaviour:
   - {fileID: 1775182958}
   - {fileID: 396761722}
   _playerCardSpriteNow: []
+  _playerRankJuge: 
+  _playerSuitJuge: 
   _slotSprite: []
-  _cards:
-  - {fileID: 11400000, guid: 22464d9e78fe0a94a85f8158e45d6757, type: 2}
-  - {fileID: 11400000, guid: b5b5830c7cbe70543af11f97e0b8e385, type: 2}
-  - {fileID: 11400000, guid: daf5a9cdbe89f824db80d6d853f315be, type: 2}
-  - {fileID: 11400000, guid: c23f0abc53c4b3147a1ef32673620402, type: 2}
-  - {fileID: 11400000, guid: 25d4813bbdf487c44becfe81f598e984, type: 2}
-  - {fileID: 11400000, guid: 85e750d5323519c46bbbd1f7c17759b6, type: 2}
-  - {fileID: 11400000, guid: aca5324698b8ab44f9eb22caa726f8bf, type: 2}
-  - {fileID: 11400000, guid: 11342162176512d4c9fbb415e23b8749, type: 2}
-  - {fileID: 11400000, guid: a04b0bbf1be38d142a1c017c7f152c5c, type: 2}
-  - {fileID: 11400000, guid: f3c8cc80853c29d468ffd77b4be390ac, type: 2}
-  - {fileID: 11400000, guid: 2695684bb1cd0124192bebdff443079a, type: 2}
-  - {fileID: 11400000, guid: db016835fe206c54aad5c41ada944c47, type: 2}
-  - {fileID: 11400000, guid: 1236cc3214db868408b20f43526d6e7d, type: 2}
-  - {fileID: 11400000, guid: 6b789c8d67524c648869f6a9c8ada91b, type: 2}
-  - {fileID: 11400000, guid: ce1f7d93cc599b34cb55a5531b6d3dad, type: 2}
-  - {fileID: 11400000, guid: 9efc13d9b8e2cbc44a139b9bcb5846c7, type: 2}
-  - {fileID: 11400000, guid: d21b044390eebe74892b9d6389dbfd0b, type: 2}
-  - {fileID: 11400000, guid: 540e8de2c47ec0c43b117c0085574217, type: 2}
-  - {fileID: 11400000, guid: 26fb3c286872d874abe450b601ae993b, type: 2}
-  - {fileID: 11400000, guid: d159c6d7084829d46a435fe1767625aa, type: 2}
-  - {fileID: 11400000, guid: 359b9b32ca1a15b41b5444fb8e892259, type: 2}
-  - {fileID: 11400000, guid: eebfb4ada590dad48883cbebdc485132, type: 2}
-  - {fileID: 11400000, guid: ab88bb0c434b5c14a88393079c433d7a, type: 2}
-  - {fileID: 11400000, guid: 20038fe8ad720ca47aa521e6afb8298d, type: 2}
-  - {fileID: 11400000, guid: 0526f3c836520dc41a12e56c4280214a, type: 2}
-  - {fileID: 11400000, guid: 69850bf2d1299444e8ae2000b68a3dc7, type: 2}
-  - {fileID: 11400000, guid: f1cca61fd1c4bf7458b68c2ebe1c3d28, type: 2}
-  - {fileID: 11400000, guid: 212c270e4000a8641bc6eae346f60dc7, type: 2}
-  - {fileID: 11400000, guid: dc954aeaf888e1a458c8ecb790983cf3, type: 2}
-  - {fileID: 11400000, guid: 5df5c6eff3a017f44b1bd546a033df1f, type: 2}
-  - {fileID: 11400000, guid: bbdbe52ec6529834ab69019244fb7432, type: 2}
-  - {fileID: 11400000, guid: a7a027b8951edae42929ada8cf38c8ed, type: 2}
-  - {fileID: 11400000, guid: 007986030d9022e4b94293ad57e19aa7, type: 2}
-  - {fileID: 11400000, guid: ba280cb4d80c8b14f8ba7a87cbf2d32a, type: 2}
-  - {fileID: 11400000, guid: 5ce2fbea0b9d71546a7d07e9d2283cfa, type: 2}
-  - {fileID: 11400000, guid: 4634a8f0b2a83534e854e93d90fa9d93, type: 2}
-  - {fileID: 11400000, guid: 11530ceb31082d64b8f0a45a2259a175, type: 2}
-  - {fileID: 11400000, guid: 4721d72e979da024faecdbec8df0b29a, type: 2}
-  - {fileID: 11400000, guid: 999b108e8d73272488ab3b65fee0059a, type: 2}
-  - {fileID: 11400000, guid: 9286c4ff359cecb4294422471d3050cb, type: 2}
-  - {fileID: 11400000, guid: f2ec78df866ef624995a683d432bb4cd, type: 2}
-  - {fileID: 11400000, guid: 5716f44bf17b63f4894e9c387aa9c2aa, type: 2}
-  - {fileID: 11400000, guid: 6eb75f09cefb25d46b93fb73aaaf7cd5, type: 2}
-  - {fileID: 11400000, guid: 2c4ac0148b0c6634bbd93d53764852fa, type: 2}
-  - {fileID: 11400000, guid: 6a852aca0a17dba4089af399bd862df4, type: 2}
-  - {fileID: 11400000, guid: d8c8b80f04203304ba522c0cf7a8c67d, type: 2}
-  - {fileID: 11400000, guid: 0520d7785f06bfa4fa803e1335d1ccaf, type: 2}
-  - {fileID: 11400000, guid: 49a84c98586782f458ccfd507edbb3ee, type: 2}
-  - {fileID: 11400000, guid: b7a14b359346d4d41ab8b9e3570090bd, type: 2}
-  - {fileID: 11400000, guid: 18e451fa655877b45b16de25596595bf, type: 2}
-  - {fileID: 11400000, guid: cf48df8eb90d991478d3b6d79794ab7e, type: 2}
-  - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
+  _slotRankJuge: 
+  _slotSuitJuge: 
 --- !u!1 &396761722
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +267,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
   _cardRank: 0
   _cardSuit: 0
+  pokerHundJuge: {fileID: 91973508}
 --- !u!95 &396761724
 Animator:
   serializedVersion: 5
@@ -762,8 +714,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18e451fa655877b45b16de25596595bf, type: 2}
   - {fileID: 11400000, guid: cf48df8eb90d991478d3b6d79794ab7e, type: 2}
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
-  _cardRank: 0
-  _cardSuit: 0
+  _cardRank: 
+  _cardSuit: 
   _spawnInterval: 0.5
   pokerHundJuge: {fileID: 91973508}
 --- !u!4 &534349249
@@ -1087,6 +1039,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
   _cardRank: 0
   _cardSuit: 0
+  pokerHundJuge: {fileID: 91973508}
 --- !u!114 &754976897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1289,6 +1242,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
   _cardRank: 0
   _cardSuit: 0
+  pokerHundJuge: {fileID: 91973508}
 --- !u!95 &1339815703
 Animator:
   serializedVersion: 5
@@ -1510,6 +1464,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
   _cardRank: 0
   _cardSuit: 0
+  pokerHundJuge: {fileID: 91973508}
 --- !u!95 &1775182960
 Animator:
   serializedVersion: 5
@@ -1759,6 +1714,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
   _cardRank: 0
   _cardSuit: 0
+  pokerHundJuge: {fileID: 91973508}
 --- !u!95 &1956492654
 Animator:
   serializedVersion: 5
