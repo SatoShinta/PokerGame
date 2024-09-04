@@ -11,7 +11,7 @@ public class Player_Card : MonoBehaviour
     [SerializeField,Header("ƒJ[ƒh‚Ì”­¶ŠÔŠu")] private float _spawnInterval = 0.5f;
 
     SpriteRenderer spriteRenderer;
-    //[SerializeField] private PokerHundJuge pokerHundJuge;
+    [SerializeField] private PokerHundJuge pokerHundJuge;
 
 
     IEnumerator SpawnCoroutine()
@@ -30,7 +30,7 @@ public class Player_Card : MonoBehaviour
             //Œ»İ‚ÌŠG•¿‚ğ“üè‚·‚é
             _playerCardSpriteNow.Add(_playerCardSprite[randomIndex]);
             
-            //pokerHundJuge._playerSprite.Add(_playerCardSprite[randomIndex]);
+            pokerHundJuge._playerSprite.Add(_playerCardSprite[randomIndex]);
 
             //_playerCard‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚ğ_playerCardPos‚ÌêŠ‚É¶¬‚·‚é
             Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
