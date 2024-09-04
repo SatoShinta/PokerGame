@@ -1,21 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slot1 : MonoBehaviour
 {
     public SpriteRenderer spriterenderer;
     public Sprite nowSprite;
-    [SerializeField] Sprite[] card;
-    Animator animator;
+    
+   // [SerializeField] Sprite[] card;
+    [SerializeField, Header("カードの情報")] private List<CardData> _cards = new List<CardData>();
 
-    // [SerializeField] SlotStop SlotStop;
 
 
     public void Start()
     {
         spriterenderer = GetComponent<SpriteRenderer>();
         nowSprite = GetComponent<Sprite>();
-        animator = GetComponent<Animator>();
-        //  SlotStop =GameObject.Find("SlotManager").GetComponent<SlotStop>();
     }
 
     public void Update()
@@ -27,8 +27,9 @@ public class Slot1 : MonoBehaviour
     public void CangeSprite()
     {
         //カードの絵柄をランダムに選択し、その絵柄をスロットの目にする
-        int slotRandomIndex = Random.Range(0, card.Length);
-        spriterenderer.sprite = card[slotRandomIndex];
+        int slotRandomIndex = Random.Range(0, _cards.Count);
+        CardData card = _cards[slotRandomIndex];
+        spriterenderer.sprite = card.sprite;
         nowSprite = spriterenderer.sprite;
     }
 
