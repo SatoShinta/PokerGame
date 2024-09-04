@@ -10,8 +10,8 @@ public class Slot1 : MonoBehaviour
    // [SerializeField] Sprite[] card;
     [SerializeField, Header("カードの情報")] public List<CardData> _cards = new List<CardData>();
 
-    [SerializeField,Header("cardのランク")]CardData.Rank _cardRank;
-    [SerializeField,Header("cardのスーツ")]CardData.Suit _cardSuit;
+    [SerializeField,Header("cardのランク")] public CardData.Rank _cardRank;
+    [SerializeField,Header("cardのスーツ")] public CardData.Suit _cardSuit;
     
 
     public void Start()
@@ -20,10 +20,6 @@ public class Slot1 : MonoBehaviour
         nowSprite = GetComponent<Sprite>();
     }
 
-    public void Update()
-    {
-
-    }
 
     //ランダムなsprite（card配列の中にあるもの）に変更する
     public void CangeSprite()
