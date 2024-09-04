@@ -8,7 +8,6 @@ public class StartPosition : MonoBehaviour
     public float posTimer;
     [SerializeField] MouseDrag mouseDrag;
 
-    // Start is called before the first frame update
     void Start()
     {
         mouseDrag = GetComponent<MouseDrag>();
