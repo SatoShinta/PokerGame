@@ -8,9 +8,11 @@ public class Slot1 : MonoBehaviour
     public Sprite nowSprite;
     
    // [SerializeField] Sprite[] card;
-    [SerializeField, Header("カードの情報")] private List<CardData> _cards = new List<CardData>();
+    [SerializeField, Header("カードの情報")] public List<CardData> _cards = new List<CardData>();
 
-
+    [SerializeField,Header("cardのランク")]CardData.Rank _cardRank;
+    [SerializeField,Header("cardのスーツ")]CardData.Suit _cardSuit;
+    
 
     public void Start()
     {
@@ -31,7 +33,12 @@ public class Slot1 : MonoBehaviour
         CardData card = _cards[slotRandomIndex];
         spriterenderer.sprite = card.sprite;
         nowSprite = spriterenderer.sprite;
+        _cardRank = card.rank;
+        _cardSuit = card.suit;
     }
+
+   
+       
 
 
 
