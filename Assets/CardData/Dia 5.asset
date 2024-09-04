@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dia 5
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 10eaea1881e2e7b41ab0e3d0fb536248, type: 3}
-  rank: 4
+  rank: 3
   suit: 1

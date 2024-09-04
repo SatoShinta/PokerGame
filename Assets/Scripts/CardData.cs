@@ -18,7 +18,6 @@ public class CardData : ScriptableObject
 
     public enum Rank
     {
-        Ace,    
         Two,
         Three,
         Four,
@@ -31,6 +30,7 @@ public class CardData : ScriptableObject
         Jack,
         Queen,
         King,
+        Ace
     }
    
 }
