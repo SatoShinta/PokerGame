@@ -42,53 +42,7 @@ public class Slot1 : MonoBehaviour
         pokerHundJuge._slotSuitJuge.Add(_cardSuit);
     }
 
-    public void CangeCard()
-    {
-        while(true)
-        {
-            int counter = 0;
-            int i = 0;
-            i++;
-            CardData card2 = _cards[i];
-            spriterenderer.sprite = card2.sprite;
-            nowSprite = spriterenderer.sprite;
-            _cardRank = card2.rank;
-            _cardSuit = card2.suit;
-            if(i > 52)
-            {
-                i = 0;
-                counter++;
-            }
-            if(counter >= 3)
-            {
-                break;
-            }
-        }
-        
-       
-    }
-
-    public void CangeCard2()
-    {
-        CardData card2 = _cards[3];
-    }
-
-    public void CangeCard3()
-    {
-        CardData card2 = _cards[0];
-    }
-
-    public void CangeCard4()
-    {
-        CardData card2 = _cards[0];
-    }
-
-    public void CangeCard5()
-    {
-        CardData card2 = _cards[0];
-    }
-
-
+    
 
 
 
