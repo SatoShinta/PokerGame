@@ -4,11 +4,12 @@ using UnityEngine;
 public class PokerHundJuge : MonoBehaviour
 {
     [SerializeField] GameObject[] slots;
-
-    [SerializeField] public List<Sprite> _playerSprite = new List<Sprite>(); 
-    [SerializeField] Sprite[] _slotSprite;
+    [SerializeField, Header("現在の絵柄")] public List<Sprite> _playerCardSpriteNow = new List<Sprite>();
+    [SerializeField, Header("スロットの絵柄")] Sprite[] _slotSprite;
     SlotStopSprite _slotStopSprite;
     Player_Card _player_Card;
+    [SerializeField, Header("カードの情報")] private List<CardData> _cards = new List<CardData>();
+
 
     private void Start()
     {
@@ -24,8 +25,8 @@ public class PokerHundJuge : MonoBehaviour
             i++;
         }
 
-        
+
     }
-   
-  
+
+
 }

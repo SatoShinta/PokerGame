@@ -30,7 +30,7 @@ public class Player_Card : MonoBehaviour
             //現在の絵柄を入手する
             _playerCardSpriteNow.Add(_playerCardSprite[randomIndex]);
             
-            pokerHundJuge._playerSprite.Add(_playerCardSprite[randomIndex]);
+            pokerHundJuge._playerCardSpriteNow.Add(_playerCardSprite[randomIndex]);
 
             //_playerCardに格納されているカードを_playerCardPosの場所に生成する
             Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
@@ -42,7 +42,6 @@ public class Player_Card : MonoBehaviour
     private void Start()
     {
         spriteRenderer = _playerCard.GetComponent<SpriteRenderer>();
-       // pokerHundJuge = FindObjectOfType<PokerHundJuge>();
         //ゲーム開始時に実行
         StartCoroutine(SpawnCoroutine());
     }
