@@ -17,6 +17,7 @@ public class Player_Card : MonoBehaviour
     [SerializeField, Header("カードの発生間隔")] private float _spawnInterval = 0.5f;
 
     SpriteRenderer spriteRenderer;
+
     [SerializeField] private PokerHundJuge pokerHundJuge;
 
 
@@ -42,6 +43,7 @@ public class Player_Card : MonoBehaviour
             _cardSuit.Add(card.suit);
             pokerHundJuge._playerRankJuge.Add(card.rank);
             pokerHundJuge._playerSuitJuge.Add(card.suit);
+            CardManager.AddSelectedCard(card);
 
             //_playerCardに格納されているカードを_playerCardPosの場所に生成する
             Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
