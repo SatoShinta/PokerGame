@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PokerHundJuge : MonoBehaviour
@@ -30,7 +31,38 @@ public class PokerHundJuge : MonoBehaviour
             _slotSprite[i] = _slotStopSprite._slotCardSpriteNow;
             i++;
         }
+
     }
 
-    
+
+
+    public void HandCheck()
+    {
+        var cards = _slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })
+                    .Concat(_slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })).ToList();
+
+        bool RoyalFlush() => cards.Count(c => c.Rank >= CardData.Rank.Ten && c.Suit == cards[0].Suit) >= 5
+            && cards.Select(c => (int)c.Rank).OrderBy(x => x).SequenceEqual(Enumerable.Range(10, 5));
+
+
+        bool IsStraitFlush() => cards.Count(c => c.Suit == cards[0].Suit
+        && (int)c.Rank >= (int)cards.Min(x => (x.Rank)) && (int)c.Rank <= (int)cards.Min(x => (x.Rank)) + 4) >= 5;
+
+
+    }
+
+
+    public enum HandRank
+    {
+        HighCard,
+        OnePair,
+        TwoPair,
+        ThreeOfAKind,
+        Straight,
+        Flush,
+        FullHouse,
+        FourOfAKind,
+        StraightFlush,
+        RoyalFlush
+    }
 }
