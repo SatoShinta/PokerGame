@@ -41,14 +41,16 @@ public class PokerHundJuge : MonoBehaviour
         var cards = _slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })
                     .Concat(_slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })).ToList();
 
-        bool RoyalFlush() => cards.Count(c => c.Rank >= CardData.Rank.Ten && c.Suit == cards[0].Suit) >= 5
-            && cards.Select(c => (int)c.Rank).OrderBy(x => x).SequenceEqual(Enumerable.Range(10, 5));
-
+        bool RoyalFlush() => cards.Where(c => c.Rank >= CardData.Rank.Ten && c.Suit == cards[0].Suit)
+                                .OrderBy(c => (int)c.Rank)
+                                .Take(5)
+                                .Select(c => (int)c.Rank)
+                                .SequenceEqual(Enumerable.Range(10, 5));
 
         bool IsStraitFlush() => cards.Where(c => c.Suit == cards[0].Suit 
-        && (int)c.Rank >= (int)cards.Min(x => (x.Rank)) 
-        && (int)c.Rank <= (int)cards.Min(x => (x.Rank)) + 4)
-        .Count() >= 5;
+                                && (int)c.Rank >= (int)cards.Min(x => (x.Rank)) 
+                                && (int)c.Rank <= (int)cards.Min(x => (x.Rank)) + 4)
+                               .Count() >= 5;
 
         bool FullHouse() => cards.GroupBy(c => c.Rank)
                            .Select(g => g.Count())
