@@ -45,24 +45,20 @@ public class PokerHundJuge : MonoBehaviour
             && cards.Select(c => (int)c.Rank).OrderBy(x => x).SequenceEqual(Enumerable.Range(10, 5));
 
 
-        bool IsStraitFlush() => cards.Count(c => c.Suit == cards[0].Suit
-        && (int)c.Rank >= (int)cards.Min(x => (x.Rank)) && (int)c.Rank <= (int)cards.Min(x => (x.Rank)) + 4) >= 5;
+        bool IsStraitFlush() => cards.Where(c => c.Suit == cards[0].Suit 
+        && (int)c.Rank >= (int)cards.Min(x => (x.Rank)) 
+        && (int)c.Rank <= (int)cards.Min(x => (x.Rank)) + 4)
+        .Count() >= 5;
+
+        bool FullHouse() => cards.GroupBy(c => c.Rank)
+                           .Select(g => g.Count())
+                           .OrderByDescending(x => x)
+                           .Take(2)
+                           .SequenceEqual(new[] { 3, 2 });
 
 
     }
 
 
-    public enum HandRank
-    {
-        HighCard,
-        OnePair,
-        TwoPair,
-        ThreeOfAKind,
-        Straight,
-        Flush,
-        FullHouse,
-        FourOfAKind,
-        StraightFlush,
-        RoyalFlush
-    }
+   
 }
