@@ -47,7 +47,7 @@ public class PokerHundJuge : MonoBehaviour
                                 .Select(c => (int)c.Rank)
                                 .SequenceEqual(Enumerable.Range(10, 5));
 
-        bool IsStraitFlush() => cards.Where(c => c.Suit == cards[0].Suit
+        bool StraitFlush() => cards.Where(c => c.Suit == cards[0].Suit
                                 && (int)c.Rank >= (int)cards.Min(x => (x.Rank))
                                 && (int)c.Rank <= (int)cards.Min(x => (x.Rank)) + 4)
                                .Count() >= 5;
@@ -79,6 +79,25 @@ public class PokerHundJuge : MonoBehaviour
 
         bool OnePair() => cards.GroupBy(c => c.Rank)
                          .Any(g => g.Count() >= 2);
+
+
+        if (RoyalFlush())
+        {
+            Debug.Log( "ロイヤルストレートフラッシュ");
+        }
+        else if (StraitFlush()) 
+        {
+            Debug.Log("ストレートフラッシュ");
+        }
+        else if (ForOfaKind())
+        {
+            Debug.Log("フォーカード");
+        }
+    }
+
+    public void handchack2()
+    {
+
     }
 
 
