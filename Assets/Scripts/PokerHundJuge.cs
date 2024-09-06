@@ -30,10 +30,6 @@ public class PokerHundJuge : MonoBehaviour
             _slotSprite[i] = _slotStopSprite._slotCardSpriteNow;
             i++;
         }
-
-
-
-
     }
 
 
