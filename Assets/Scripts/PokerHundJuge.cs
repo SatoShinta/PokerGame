@@ -39,7 +39,7 @@ public class PokerHundJuge : MonoBehaviour
     public void HandCheck()
     {
         var cards = _slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })
-                    .Concat(_slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })).ToList();
+                    .Concat(_playerRankJuge.Zip(_playerSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })).ToList();
 
         bool RoyalFlush() => cards.Where(c => c.Rank >= CardData.Rank.Ten && c.Suit == cards[0].Suit)
                                 .OrderBy(c => (int)c.Rank)
@@ -47,8 +47,8 @@ public class PokerHundJuge : MonoBehaviour
                                 .Select(c => (int)c.Rank)
                                 .SequenceEqual(Enumerable.Range(10, 5));
 
-        bool IsStraitFlush() => cards.Where(c => c.Suit == cards[0].Suit 
-                                && (int)c.Rank >= (int)cards.Min(x => (x.Rank)) 
+        bool IsStraitFlush() => cards.Where(c => c.Suit == cards[0].Suit
+                                && (int)c.Rank >= (int)cards.Min(x => (x.Rank))
                                 && (int)c.Rank <= (int)cards.Min(x => (x.Rank)) + 4)
                                .Count() >= 5;
 
@@ -58,9 +58,29 @@ public class PokerHundJuge : MonoBehaviour
                            .Take(2)
                            .SequenceEqual(new[] { 3, 2 });
 
+        bool Flush() => cards.GroupBy(g => g.Suit).Any(g => g.Count() >= 5);
 
+        bool Straight() => cards.Select(c => (int)c.Rank)
+                          .OrderBy(x => x)
+                          .Distinct()
+                          .Count(x => Enumerable.Range(x, 5).All(rank => cards.Any(c => (int)c.Rank == rank))) >= 5;
+
+        bool ForOfaKind() => cards.GroupBy(card => card.Rank)
+                            .Any(g => g.Count() >= 4);
+
+        bool ThreeOfaKind() => cards.GroupBy(c => c.Rank)
+                              .Any(g => g.Count() >= 3);
+
+        bool TowPair() => cards.GroupBy(c => c.Rank)
+                         .Select(g => g.Count())
+                         .OrderByDescending(x => x)
+                         .Take(2)
+                         .SequenceEqual(new[] { 2, 2 });
+
+        bool OnePair() => cards.GroupBy(c => c.Rank)
+                         .Any(g => g.Count() >= 2);
     }
 
 
-   
+
 }
