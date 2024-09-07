@@ -93,6 +93,38 @@ public class PokerHundJuge : MonoBehaviour
         {
             Debug.Log("フォーカード");
         }
+        else if (FullHouse())
+        {
+            Debug.Log("フルハウス");
+        }
+        else if (Flush())
+        {
+            Debug.Log("フラッシュ");
+        }
+        else if (Straight())
+        {
+            Debug.Log("ストレート");
+        }
+        else if (FullHouse()) 
+        {
+            Debug.Log("フルハウス");
+        }
+        else if (Flush())
+        {
+            Debug.Log("フラッシュ");
+        }
+        else if (Straight())
+        {
+            Debug.Log("ストレート");
+        }
+        else if (ThreeOfaKind())
+        {
+            Debug.Log("スリーカード");
+        }
+        else if (TowPair())
+        {
+            Debug.Log("ツーペア");
+        }
     }
 
     public void handchack2()
