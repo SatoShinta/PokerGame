@@ -178,6 +178,7 @@ MonoBehaviour:
   _slotSprite: []
   _slotRankJuge: 
   _slotSuitJuge: 
+  cardDatas: []
 --- !u!1 &396761722
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +266,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18e451fa655877b45b16de25596595bf, type: 2}
   - {fileID: 11400000, guid: cf48df8eb90d991478d3b6d79794ab7e, type: 2}
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
+  _nowCard: []
   _cardRank: 0
   _cardSuit: 0
   pokerHundJuge: {fileID: 91973508}
@@ -990,6 +992,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18e451fa655877b45b16de25596595bf, type: 2}
   - {fileID: 11400000, guid: cf48df8eb90d991478d3b6d79794ab7e, type: 2}
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
+  _nowCard: []
   _cardRank: 0
   _cardSuit: 0
   pokerHundJuge: {fileID: 91973508}
@@ -1193,6 +1196,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18e451fa655877b45b16de25596595bf, type: 2}
   - {fileID: 11400000, guid: cf48df8eb90d991478d3b6d79794ab7e, type: 2}
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
+  _nowCard: []
   _cardRank: 0
   _cardSuit: 0
   pokerHundJuge: {fileID: 91973508}
@@ -1415,6 +1419,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18e451fa655877b45b16de25596595bf, type: 2}
   - {fileID: 11400000, guid: cf48df8eb90d991478d3b6d79794ab7e, type: 2}
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
+  _nowCard: []
   _cardRank: 0
   _cardSuit: 0
   pokerHundJuge: {fileID: 91973508}
@@ -1556,6 +1561,7 @@ MonoBehaviour:
   - {fileID: 396761722}
   slotAnimator: []
   pushCounter: 0
+  PokerHundJuge: {fileID: 91973508}
 --- !u!4 &1941584094
 Transform:
   m_ObjectHideFlags: 0
@@ -1658,6 +1664,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18e451fa655877b45b16de25596595bf, type: 2}
   - {fileID: 11400000, guid: cf48df8eb90d991478d3b6d79794ab7e, type: 2}
   - {fileID: 11400000, guid: e8229b3e0c02abb43905427d2b6a1a1c, type: 2}
+  _nowCard: []
   _cardRank: 0
   _cardSuit: 0
   pokerHundJuge: {fileID: 91973508}

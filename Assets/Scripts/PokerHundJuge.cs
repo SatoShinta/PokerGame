@@ -125,6 +125,14 @@ public class PokerHundJuge : MonoBehaviour
         {
             Debug.Log("ツーペア");
         }
+        else if (OnePair())
+        {
+            Debug.Log("ワンペア");
+        }
+        else
+        {
+            Debug.Log("ノーペア");
+        }
     }
 
     public void handchack2()

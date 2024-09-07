@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlotStop : MonoBehaviour
@@ -6,6 +5,8 @@ public class SlotStop : MonoBehaviour
     [SerializeField, Header("ÉXÉçÉbÉg")] GameObject[] slots;
     public Animator[] slotAnimator;
     public int pushCounter;
+    [SerializeField]
+    PokerHundJuge PokerHundJuge;
 
 
     void Start()
@@ -48,6 +49,10 @@ public class SlotStop : MonoBehaviour
                 case 5:
                     slotAnimator[4].Play("stop5");
                     break;
+                case 6:
+                    PokerHundJuge.HandCheck();
+                    break;
+
             }
         }
 

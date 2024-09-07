@@ -17,7 +17,7 @@ public class StartPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(posTimer);
+        
         if(mouseDrag.cardUp == true)
         {
             if(mouseDrag.cardMove == true)
