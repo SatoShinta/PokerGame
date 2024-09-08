@@ -17,7 +17,9 @@ public class StartPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //マウスを使ってプレイヤーのカードを動かし
+        //指定の時間がたったら元の位置に戻す
+
         if(mouseDrag.cardUp == true)
         {
             if(mouseDrag.cardMove == true)
@@ -39,6 +41,7 @@ public class StartPosition : MonoBehaviour
         }
     }
 
+    //元の位置に戻すメソッド
     public void PosReset()
     {
         transform.position = syokiPos;

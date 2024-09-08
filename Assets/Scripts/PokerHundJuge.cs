@@ -20,11 +20,13 @@ public class PokerHundJuge : MonoBehaviour
 
     private void Start()
     {
+        //スロットがある分だけ配列を作る
         _slotSprite = new Sprite[slots.Length];
     }
 
     private void Update()
     {
+        //各スロットのSlotStopSpriteを取得する
         for (int i = 0; i < slots.Length;)
         {
             _slotStopSprite = slots[i].GetComponent<SlotStopSprite>();
@@ -35,12 +37,18 @@ public class PokerHundJuge : MonoBehaviour
     }
 
 
-
+    //役判定のメソッド
     public void HandCheck()
     {
-        var cards = _slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })
+        //プレイヤーの持っているカードとスロットのカードをまとめる処理
+
+        //.Zipで_slotRankJugeと_slotSuitJugeリストを匿名型オブジェクトのrankとsuitに置き換え、
+        //_playerRankJugeと_playerSuitJugeも同じく置き換え、
+        //.Concatで.Zipでまとめた2つを1つにまとめ、.ToListでこれらをListに変換する
+        var cards = _slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit }) 
                     .Concat(_playerRankJuge.Zip(_playerSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })).ToList();
 
+        //RoyalFlushか判定する処理
         bool RoyalFlush() => cards.Where(c => c.Rank >= CardData.Rank.Ten && c.Suit == cards[0].Suit)
                                 .OrderBy(c => (int)c.Rank)
                                 .Take(5)
