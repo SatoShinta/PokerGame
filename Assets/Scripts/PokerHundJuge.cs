@@ -65,7 +65,7 @@ public class PokerHundJuge : MonoBehaviour
                           .Distinct()
                           .Count(x => Enumerable.Range(x, 5).All(rank => cards.Any(c => (int)c.Rank == rank))) >= 5;
 
-        bool ForOfaKind() => cards.GroupBy(card => card.Rank)
+        bool FourOfaKind() => cards.GroupBy(card => card.Rank)
                             .Any(g => g.Count() >= 4);
 
         bool ThreeOfaKind() => cards.GroupBy(c => c.Rank)
@@ -89,23 +89,11 @@ public class PokerHundJuge : MonoBehaviour
         {
             Debug.Log("ストレートフラッシュ");
         }
-        else if (ForOfaKind())
+        else if (FourOfaKind())
         {
             Debug.Log("フォーカード");
         }
         else if (FullHouse())
-        {
-            Debug.Log("フルハウス");
-        }
-        else if (Flush())
-        {
-            Debug.Log("フラッシュ");
-        }
-        else if (Straight())
-        {
-            Debug.Log("ストレート");
-        }
-        else if (FullHouse()) 
         {
             Debug.Log("フルハウス");
         }
@@ -135,10 +123,8 @@ public class PokerHundJuge : MonoBehaviour
         }
     }
 
-    public void handchack2()
-    {
+    
 
-    }
 
 
 

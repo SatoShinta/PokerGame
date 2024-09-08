@@ -5,8 +5,8 @@ public class SlotStop : MonoBehaviour
     [SerializeField, Header("ÉXÉçÉbÉg")] GameObject[] slots;
     public Animator[] slotAnimator;
     public int pushCounter;
-    [SerializeField]
-    PokerHundJuge PokerHundJuge;
+    [SerializeField]PokerHundJuge PokerHundJuge;
+    [SerializeField]Player_Card Player_Card;
 
 
     void Start()
@@ -51,6 +51,15 @@ public class SlotStop : MonoBehaviour
                     break;
                 case 6:
                     PokerHundJuge.HandCheck();
+                    break;
+                case 7:
+
+                    slotAnimator[0].Play("slot1");
+                    slotAnimator[1].Play("slot2");
+                    slotAnimator[2].Play("slot3");
+                    slotAnimator[3].Play("slot4");
+                    slotAnimator[4].Play("slot5");
+                    pushCounter = 0;
                     break;
 
             }

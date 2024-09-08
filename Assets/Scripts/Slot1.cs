@@ -60,8 +60,10 @@ public class Slot1 : MonoBehaviour
         }
     }
 
-    
+    public void ListRemove()
+    {
 
+    }
 
 
 

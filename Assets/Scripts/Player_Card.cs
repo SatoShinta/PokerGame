@@ -21,7 +21,7 @@ public class Player_Card : MonoBehaviour
     [SerializeField] private PokerHundJuge pokerHundJuge;
 
 
-    IEnumerator SpawnCoroutine()
+    public IEnumerator SpawnCoroutine()
     {
 
         //_playerCardPosに格納されているオブジェクトがあるだけ実行する
@@ -39,6 +39,7 @@ public class Player_Card : MonoBehaviour
             _playerCardSpriteNow.Add(card.sprite);
             pokerHundJuge._playerCardSpriteNow.Add(card.sprite);
 
+            //現在のカードの情報を取得する
             _cardRank.Add(card.rank);
             _cardSuit.Add(card.suit);
             pokerHundJuge._playerRankJuge.Add(card.rank);
@@ -50,6 +51,17 @@ public class Player_Card : MonoBehaviour
 
 
         }
+    }
+
+    public void RemoveList()
+    {
+        pokerHundJuge._playerRankJuge.Clear();
+        pokerHundJuge._playerSuitJuge.Clear();
+        _cardRank.Clear();
+        _cardSuit.Clear();
+        _playerCardSpriteNow.Clear();
+        pokerHundJuge._playerCardSpriteNow.Clear();
+
     }
 
     private void Start()

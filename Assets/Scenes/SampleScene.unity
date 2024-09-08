@@ -1562,6 +1562,7 @@ MonoBehaviour:
   slotAnimator: []
   pushCounter: 0
   PokerHundJuge: {fileID: 91973508}
+  Player_Card: {fileID: 534349248}
 --- !u!4 &1941584094
 Transform:
   m_ObjectHideFlags: 0
