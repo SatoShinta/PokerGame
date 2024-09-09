@@ -1,21 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Slot1 : MonoBehaviour
 {
     public SpriteRenderer spriterenderer;
     public Sprite nowSprite;
-    
-   // [SerializeField] Sprite[] card;
-    [SerializeField, Header("カードの情報")] public List<CardData> _cards = new List<CardData>();
-    [SerializeField,Header("現在のcard")]　public List<CardData> _nowCard = new List<CardData>();
 
-    [SerializeField,Header("cardのランク")] public CardData.Rank _cardRank;
-    [SerializeField,Header("cardのスーツ")] public CardData.Suit _cardSuit;
+    // [SerializeField] Sprite[] card;
+    [SerializeField, Header("カードの情報")] public List<CardData> _cards = new List<CardData>();
+    [SerializeField, Header("現在のcard")] public List<CardData> _nowCard = new List<CardData>();
+
+    [SerializeField, Header("cardのランク")] public CardData.Rank _cardRank;
+    [SerializeField, Header("cardのスーツ")] public CardData.Suit _cardSuit;
 
     [SerializeField] private PokerHundJuge pokerHundJuge;
-
     CardData card;
 
 
@@ -40,6 +38,8 @@ public class Slot1 : MonoBehaviour
         _cardSuit = card.suit;
     }
 
+
+
     public void GetCardData()
     {
         if (CardManager.IsSelected(card))
@@ -54,13 +54,12 @@ public class Slot1 : MonoBehaviour
         else
         {
             CardManager.AddSelectedCard(card);
+            CardManager.AddEnemySelectedCard(card);
             pokerHundJuge._slotRankJuge.Add(_cardRank);
             pokerHundJuge._slotSuitJuge.Add(_cardSuit);
-           
+
         }
     }
-
-    
 
 
 

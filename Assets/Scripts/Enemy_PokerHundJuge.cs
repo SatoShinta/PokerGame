@@ -2,17 +2,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PokerHundJuge : MonoBehaviour
+public class Enemy_PokerHundJuge : MonoBehaviour
 {
     [SerializeField] GameObject[] slots;
-    [SerializeField, Header("プレイヤーの現在の絵柄")] public List<Sprite> _playerCardSpriteNow = new List<Sprite>();
-    [SerializeField, Header("プレイヤーのcardのrank")] public List<CardData.Rank> _playerRankJuge = new List<CardData.Rank>();
-    [SerializeField, Header("プレイヤーのcardのsuit")] public List<CardData.Suit> _playerSuitJuge = new List<CardData.Suit>();
+    [SerializeField, Header("プレイヤーの現在の絵柄")] public List<Sprite> _enemyCardSpriteNow = new List<Sprite>();
+    [SerializeField, Header("プレイヤーのcardのrank")] public List<CardData.Rank> _enemyplayerRankJuge = new List<CardData.Rank>();
+    [SerializeField, Header("プレイヤーのcardのsuit")] public List<CardData.Suit> _enemyplayerSuitJuge = new List<CardData.Suit>();
 
     [SerializeField, Header("スロットの絵柄")] public Sprite[] _slotSprite;
     [SerializeField, Header("スロットのrank")] public List<CardData.Rank> _slotRankJuge = new List<CardData.Rank>();
     [SerializeField, Header("スロットのsuit")] public List<CardData.Suit> _slotSuitJuge = new List<CardData.Suit>();
-    [SerializeField,Header("判定するためのリスト")] List<CardData> cardDatas = CardManager._selectedCards;
+    [SerializeField,Header("判定するためのリスト")] List<CardData> cardDatas = CardManager._EnemyselectedCards;
 
     SlotStopSprite _slotStopSprite;
     Slot1 _slot1;
@@ -38,7 +38,7 @@ public class PokerHundJuge : MonoBehaviour
 
 
     //役判定のメソッド
-    public void HandCheck()
+    public void Enemy_HandCheck()
     {
         //プレイヤーの持っているカードとスロットのカードをまとめる処理
         var cards = cardDatas.Select(card => new {card.rank, card.suit}).ToList();
@@ -86,52 +86,52 @@ public class PokerHundJuge : MonoBehaviour
 
         if (RoyalFlush())
         {
-            Debug.Log( "ロイヤルストレートフラッシュ");
+            Debug.Log( "E ロイヤルストレートフラッシュ");
         }
         else if (StraitFlush()) 
         {
-            Debug.Log("ストレートフラッシュ");
+            Debug.Log("E ストレートフラッシュ");
         }
         else if (FourOfaKind())
         {
-            Debug.Log("フォーカード");
+            Debug.Log("E フォーカード");
         }
         else if (FullHouse())
         {
-            Debug.Log("フルハウス");
+            Debug.Log("E フルハウス");
         }
         else if (Flush())
         {
-            Debug.Log("フラッシュ");
+            Debug.Log("E フラッシュ");
         }
         else if (Straight())
         {
-            Debug.Log("ストレート");
+            Debug.Log("E ストレート");
         }
         else if (ThreeOfaKind())
         {
-            Debug.Log("スリーカード");
+            Debug.Log("E スリーカード");
         }
         else if (TowPair())
         {
-            Debug.Log("ツーペア");
+            Debug.Log("E ツーペア");
         }
         else if (OnePair())
         {
-            Debug.Log("ワンペア");
+            Debug.Log("E ワンペア");
         }
         else
         {
-            Debug.Log("ノーペア");
+            Debug.Log("E ノーペア");
         }
     }
 
     
     public void RemoveListsJage()
     {
-        _playerCardSpriteNow.Clear();
-        _playerRankJuge.Clear();
-        _playerSuitJuge.Clear();
+        _enemyCardSpriteNow.Clear();
+        _enemyplayerRankJuge.Clear();
+        _enemyplayerSuitJuge.Clear();
         _slotRankJuge.Clear();
         _slotSuitJuge.Clear();
         cardDatas.Clear();
