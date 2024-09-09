@@ -11,6 +11,8 @@ public class SlotStop : MonoBehaviour
 
     void Start()
     {
+       // Player_Card = GetComponent<Player_Card>();
+       // PokerHundJuge = GetComponent<PokerHundJuge>();
         //slotsの中にあるオブジェクトの分の配列を作成
         slotAnimator = new Animator[slots.Length];
 
@@ -48,17 +50,19 @@ public class SlotStop : MonoBehaviour
                     break;
                 case 5:
                     slotAnimator[4].Play("stop5");
-                    break;
-                case 6:
                     PokerHundJuge.HandCheck();
                     break;
+                case 6:
+                    Player_Card.RemoveList();
+                    PokerHundJuge.RemoveListsJage();
+                    break;
                 case 7:
-
                     slotAnimator[0].Play("slot1");
                     slotAnimator[1].Play("slot2");
                     slotAnimator[2].Play("slot3");
                     slotAnimator[3].Play("slot4");
                     slotAnimator[4].Play("slot5");
+                    StartCoroutine(Player_Card.SpawnCoroutine());
                     pushCounter = 0;
                     break;
 

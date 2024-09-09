@@ -6,7 +6,7 @@ public class Player_Card : MonoBehaviour
 {
     [SerializeField, Header("カードの位置")] private GameObject[] _playerCardPos;
     [SerializeField] private GameObject _playerCard;
-    [SerializeField, Header("カードの絵柄")] private Sprite[] _playerCardSprite;
+    [SerializeField,Header("発生したカード")] List<GameObject> _playerCards = new List<GameObject>();
     [SerializeField, Header("現在の絵柄")] public List<Sprite> _playerCardSpriteNow = new List<Sprite>();
 
     [SerializeField, Header("カードの情報")] public List<CardData> _cards = new List<CardData>();
@@ -47,21 +47,22 @@ public class Player_Card : MonoBehaviour
             CardManager.AddSelectedCard(card);
 
             //_playerCardに格納されているカードを_playerCardPosの場所に生成する
-            Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
-
+            GameObject newCard = Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
+            _playerCards.Add(newCard);
 
         }
     }
 
     public void RemoveList()
     {
-        pokerHundJuge._playerRankJuge.Clear();
-        pokerHundJuge._playerSuitJuge.Clear();
         _cardRank.Clear();
         _cardSuit.Clear();
         _playerCardSpriteNow.Clear();
-        pokerHundJuge._playerCardSpriteNow.Clear();
-
+        foreach(var card in _playerCards)
+        {
+            Destroy(card);
+        }
+        _playerCards.Clear();
     }
 
     private void Start()

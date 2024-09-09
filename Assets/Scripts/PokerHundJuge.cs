@@ -41,51 +41,46 @@ public class PokerHundJuge : MonoBehaviour
     public void HandCheck()
     {
         //プレイヤーの持っているカードとスロットのカードをまとめる処理
-
-        //.Zipで_slotRankJugeと_slotSuitJugeリストを匿名型オブジェクトのrankとsuitに置き換え、
-        //_playerRankJugeと_playerSuitJugeも同じく置き換え、
-        //.Concatで.Zipでまとめた2つを1つにまとめ、.ToListでこれらをListに変換する
-        var cards = _slotRankJuge.Zip(_slotSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit }) 
-                    .Concat(_playerRankJuge.Zip(_playerSuitJuge, (rank, suit) => new { Rank = rank, Suit = suit })).ToList();
+        var cards = cardDatas.Select(card => new {card.rank, card.suit}).ToList();
 
         //RoyalFlushか判定する処理
-        bool RoyalFlush() => cards.Where(c => c.Rank >= CardData.Rank.Ten && c.Suit == cards[0].Suit)
-                                .OrderBy(c => (int)c.Rank)
+        bool RoyalFlush() => cards.Where(c => c.rank >= CardData.Rank.Ten && c.suit == cards[0].suit)
+                                .OrderBy(c => (int)c.rank)
                                 .Take(5)
-                                .Select(c => (int)c.Rank)
+                                .Select(c => (int)c.rank)
                                 .SequenceEqual(Enumerable.Range(10, 5));
 
-        bool StraitFlush() => cards.Where(c => c.Suit == cards[0].Suit
-                                && (int)c.Rank >= (int)cards.Min(x => (x.Rank))
-                                && (int)c.Rank <= (int)cards.Min(x => (x.Rank)) + 4)
+        bool StraitFlush() => cards.Where(c => c.suit == cards[0].suit
+                                && (int)c.rank >= (int)cards.Min(x => (x.rank))
+                                && (int)c.rank <= (int)cards.Min(x => (x.rank)) + 4)
                                .Count() >= 5;
 
-        bool FullHouse() => cards.GroupBy(c => c.Rank)
+        bool FullHouse() => cards.GroupBy(c => c.rank)
                            .Select(g => g.Count())
                            .OrderByDescending(x => x)
                            .Take(2)
                            .SequenceEqual(new[] { 3, 2 });
 
-        bool Flush() => cards.GroupBy(g => g.Suit).Any(g => g.Count() >= 5);
+        bool Flush() => cards.GroupBy(g => g.suit).Any(g => g.Count() >= 5);
 
-        bool Straight() => cards.Select(c => (int)c.Rank)
+        bool Straight() => cards.Select(c => (int)c.rank)
                           .OrderBy(x => x)
                           .Distinct()
-                          .Count(x => Enumerable.Range(x, 5).All(rank => cards.Any(c => (int)c.Rank == rank))) >= 5;
+                          .Count(x => Enumerable.Range(x, 5).All(rank => cards.Any(c => (int)c.rank == rank))) >= 5;
 
-        bool FourOfaKind() => cards.GroupBy(card => card.Rank)
+        bool FourOfaKind() => cards.GroupBy(card => card.rank)
                             .Any(g => g.Count() >= 4);
 
-        bool ThreeOfaKind() => cards.GroupBy(c => c.Rank)
+        bool ThreeOfaKind() => cards.GroupBy(c => c.rank)
                               .Any(g => g.Count() >= 3);
 
-        bool TowPair() => cards.GroupBy(c => c.Rank)
+        bool TowPair() => cards.GroupBy(c => c.rank)
                          .Select(g => g.Count())
                          .OrderByDescending(x => x)
                          .Take(2)
                          .SequenceEqual(new[] { 2, 2 });
 
-        bool OnePair() => cards.GroupBy(c => c.Rank)
+        bool OnePair() => cards.GroupBy(c => c.rank)
                          .Any(g => g.Count() >= 2);
 
 
@@ -132,7 +127,15 @@ public class PokerHundJuge : MonoBehaviour
     }
 
     
-
+    public void RemoveListsJage()
+    {
+        _playerCardSpriteNow.Clear();
+        _playerRankJuge.Clear();
+        _playerSuitJuge.Clear();
+        _slotRankJuge.Clear();
+        _slotSuitJuge.Clear();
+        cardDatas.Clear();
+    }
 
 
 
