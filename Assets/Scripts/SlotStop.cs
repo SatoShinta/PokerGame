@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static CardData;
 
 public class SlotStop : MonoBehaviour
 {
@@ -10,6 +13,7 @@ public class SlotStop : MonoBehaviour
     [SerializeField] Player_Card Player_Card;
     [SerializeField] Enemy_Card Enemy_Card;
 
+    
 
     void Start()
     {
@@ -61,6 +65,8 @@ public class SlotStop : MonoBehaviour
                         PokerHundJuge.HandCheck();
                         EnemyHundJuge.Enemy_GetHandRank();
                         EnemyHundJuge.Enemy_HandCheck();
+
+                       PokerHundJuge.CompareHands();
                         break;
                     case 7:
 
@@ -85,13 +91,8 @@ public class SlotStop : MonoBehaviour
                 }
             }
 
-
-
-
-
-
-
-
         }
     }
+
+   
 }

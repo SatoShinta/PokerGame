@@ -12,7 +12,7 @@ public class Enemy_PokerHundJuge : MonoBehaviour
     [SerializeField, Header("スロットの絵柄")] public Sprite[] _slotSprite;
     [SerializeField, Header("スロットのrank")] public List<CardData.Rank> _slotRankJuge = new List<CardData.Rank>();
     [SerializeField, Header("スロットのsuit")] public List<CardData.Suit> _slotSuitJuge = new List<CardData.Suit>();
-    [SerializeField,Header("判定するためのリスト")] List<CardData> enemyCardDatas = CardManager._EnemyselectedCards;
+    [SerializeField,Header("判定するためのリスト")] public List<CardData> enemyCardDatas = CardManager._EnemyselectedCards;
 
     SlotStopSprite _slotStopSprite;
     Slot1 _slot1;
@@ -178,18 +178,18 @@ public class Enemy_PokerHundJuge : MonoBehaviour
     }
 
 
-    public enum HandRank
+    public enum HandRank : int
     {
-        RoyalFlush,
-        StraightFlush,
-        FourOfAKind,
-        FullHouse,
-        Flush,
-        Straight,
-        ThreeOfAKind,
-        TwoPair,
-        OnePair,
-        HighCard
+        RoyalFlush = 10,
+        StraightFlush = 9,
+        FourOfAKind = 8,
+        FullHouse = 7,
+        Flush = 6,
+        Straight = 5,
+        ThreeOfAKind = 4,
+        TwoPair = 3,
+        OnePair = 2,
+        HighCard = 1
     }
 
 

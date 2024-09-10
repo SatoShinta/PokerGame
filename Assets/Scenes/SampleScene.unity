@@ -178,7 +178,9 @@ MonoBehaviour:
   _slotSprite: []
   _slotRankJuge: 
   _slotSuitJuge: 
-  cardDatas: []
+  PlayerCardDatas: []
+  slot1scripts: []
+  Enemy_PokerHundJuge: {fileID: 1798964564}
 --- !u!1 &190791647
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +302,7 @@ MonoBehaviour:
   _nowCard: []
   _cardRank: 0
   _cardSuit: 0
+  _selectedCardsInspecter: []
   pokerHundJuge: {fileID: 91973508}
 --- !u!95 &396761724
 Animator:
@@ -730,6 +733,8 @@ MonoBehaviour:
   _cardSuit: 
   _spawnInterval: 0.5
   pokerHundJuge: {fileID: 91973508}
+  slot1scripts: []
+  _cardOk: 0
 --- !u!4 &534349249
 Transform:
   m_ObjectHideFlags: 0
@@ -1005,6 +1010,7 @@ MonoBehaviour:
   _nowCard: []
   _cardRank: 0
   _cardSuit: 0
+  _selectedCardsInspecter: []
   pokerHundJuge: {fileID: 91973508}
 --- !u!114 &754976897
 MonoBehaviour:
@@ -1211,6 +1217,7 @@ MonoBehaviour:
   _nowCard: []
   _cardRank: 0
   _cardSuit: 0
+  _selectedCardsInspecter: []
   pokerHundJuge: {fileID: 91973508}
 --- !u!95 &1339815703
 Animator:
@@ -1405,6 +1412,7 @@ MonoBehaviour:
   _cardSuit: 
   _spawnInterval: 0.5
   _enemypokerHundJuge: {fileID: 1798964564}
+  slot1scripts: []
 --- !u!4 &1345587028
 Transform:
   m_ObjectHideFlags: 0
@@ -1541,6 +1549,7 @@ MonoBehaviour:
   _nowCard: []
   _cardRank: 0
   _cardSuit: 0
+  _selectedCardsInspecter: []
   pokerHundJuge: {fileID: 91973508}
 --- !u!95 &1775182960
 Animator:
@@ -1684,7 +1693,7 @@ MonoBehaviour:
   _slotSprite: []
   _slotRankJuge: 
   _slotSuitJuge: 
-  cardDatas: []
+  enemyCardDatas: []
 --- !u!4 &1798964565
 Transform:
   m_ObjectHideFlags: 0
@@ -1741,12 +1750,6 @@ MonoBehaviour:
   EnemyHundJuge: {fileID: 1798964564}
   Player_Card: {fileID: 534349248}
   Enemy_Card: {fileID: 1345587027}
-  Slot1s:
-  - {fileID: 754976896}
-  - {fileID: 1956492653}
-  - {fileID: 1339815702}
-  - {fileID: 1775182959}
-  - {fileID: 396761723}
 --- !u!4 &1941584094
 Transform:
   m_ObjectHideFlags: 0
@@ -1852,6 +1855,7 @@ MonoBehaviour:
   _nowCard: []
   _cardRank: 0
   _cardSuit: 0
+  _selectedCardsInspecter: []
   pokerHundJuge: {fileID: 91973508}
 --- !u!95 &1956492654
 Animator:
