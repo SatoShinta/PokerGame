@@ -17,6 +17,7 @@ public class SlotStop : MonoBehaviour
     [SerializeField] Enemy_Card Enemy_Card;
     [SerializeField] ChipManager ChipManager;
     [SerializeField] PlayableDirector timeline;
+    [SerializeField] FlagManagement FlagManagement;
 
     
 
@@ -38,7 +39,7 @@ public class SlotStop : MonoBehaviour
 
     void Update()
     {
-        if (Player_Card._cardOk == true)
+        if (Player_Card._cardOk == true && FlagManagement.slotStart == false)
         {
             //スペースキーが押されたとき、
             if (Input.GetKeyDown(KeyCode.Space))

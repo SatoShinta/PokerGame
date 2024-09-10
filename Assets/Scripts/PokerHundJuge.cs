@@ -20,6 +20,7 @@ public class PokerHundJuge : MonoBehaviour
     [SerializeField] Enemy_PokerHundJuge Enemy_PokerHundJuge;
     [SerializeField] ChipManager chipManager;
     [SerializeField] Text Hundtext;
+    [SerializeField] Text WinLose;
 
     private void Start()
     {
@@ -193,25 +194,31 @@ public class PokerHundJuge : MonoBehaviour
         Enemy_PokerHundJuge.HandRank enemyHandRank = Enemy_PokerHundJuge.Enemy_GetHandRank();
         if ((int)playerHandRank > (int)enemyHandRank)
         {
-            Debug.Log("プレイヤーWin");
-            chipManager._maxPlayerChip += chipManager.eTotalAmount;
+            WinLose.text =("プレイヤーWin");
+            chipManager._maxPlayerChip += chipManager.eTotalAmount + chipManager.pTotalAmount;
             chipManager.pTotalAmount = 0;
             chipManager.eTotalAmount = 0;
+            chipManager.PUpdateUI();
+            chipManager.EUpdateUI();
         }
         else if ((int)playerHandRank < (int)enemyHandRank)
         {
-            Debug.Log("敵Win");
-            chipManager._maxEnemyChip += chipManager.pTotalAmount;
+            WinLose.text = ("敵Win");
+            chipManager._maxEnemyChip += chipManager.pTotalAmount + chipManager.eTotalAmount;
             chipManager.pTotalAmount = 0;
             chipManager.eTotalAmount = 0;
+            chipManager.PUpdateUI();
+            chipManager.EUpdateUI();
         }
         else
         {
-            Debug.Log("Drow");
+            WinLose.text = ("Drow");
             chipManager._maxPlayerChip += chipManager.pTotalAmount;
             chipManager._maxEnemyChip += chipManager.eTotalAmount;
             chipManager.pTotalAmount = 0;
             chipManager.eTotalAmount = 0;
+            chipManager.PUpdateUI();
+            chipManager.EUpdateUI();
         }
     }
 
