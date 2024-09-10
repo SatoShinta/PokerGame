@@ -13,7 +13,8 @@ public class Slot1 : MonoBehaviour
     [SerializeField, Header("cardのランク")] public CardData.Rank _cardRank;
     [SerializeField, Header("cardのスーツ")] public CardData.Suit _cardSuit;
 
-    [SerializeField, Header("重複処理")] public HashSet<CardData> _serectedCards = new HashSet<CardData>();
+    public static HashSet<CardData> _serectedCards = new HashSet<CardData>();
+    [SerializeField] List<CardData> _selectedCardsInspecter;
 
     [SerializeField] private PokerHundJuge pokerHundJuge;
     CardData card;
@@ -24,6 +25,11 @@ public class Slot1 : MonoBehaviour
     {
         spriterenderer = GetComponent<SpriteRenderer>();
         nowSprite = GetComponent<Sprite>();
+    }
+
+    public void Update()
+    {
+        _selectedCardsInspecter = new List<CardData>(_serectedCards);
     }
 
 
@@ -68,6 +74,11 @@ public class Slot1 : MonoBehaviour
     public void RemoveDataHash()
     {
         _serectedCards.Clear();
+    }
+
+    public void AddDataHash(CardData cardHash)
+    {
+        _serectedCards.Add(cardHash);
     }
 
 

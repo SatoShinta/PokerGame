@@ -12,7 +12,7 @@ public class Enemy_PokerHundJuge : MonoBehaviour
     [SerializeField, Header("スロットの絵柄")] public Sprite[] _slotSprite;
     [SerializeField, Header("スロットのrank")] public List<CardData.Rank> _slotRankJuge = new List<CardData.Rank>();
     [SerializeField, Header("スロットのsuit")] public List<CardData.Suit> _slotSuitJuge = new List<CardData.Suit>();
-    [SerializeField,Header("判定するためのリスト")] List<CardData> cardDatas = CardManager._EnemyselectedCards;
+    [SerializeField,Header("判定するためのリスト")] List<CardData> enemyCardDatas = CardManager._EnemyselectedCards;
 
     SlotStopSprite _slotStopSprite;
     Slot1 _slot1;
@@ -41,7 +41,7 @@ public class Enemy_PokerHundJuge : MonoBehaviour
     public void Enemy_HandCheck()
     {
         //プレイヤーの持っているカードとスロットのカードをまとめる処理
-        var cards = cardDatas.Select(card => new {card.rank, card.suit}).ToList();
+        var cards = enemyCardDatas.Select(card => new {card.rank, card.suit}).ToList();
 
         //RoyalFlushか判定する処理
         bool RoyalFlush() => cards.Where(c => c.rank >= CardData.Rank.Ten && c.suit == cards[0].suit)
@@ -134,7 +134,7 @@ public class Enemy_PokerHundJuge : MonoBehaviour
         _enemyplayerSuitJuge.Clear();
         _slotRankJuge.Clear();
         _slotSuitJuge.Clear();
-        cardDatas.Clear();
+        enemyCardDatas.Clear();
     }
 
 

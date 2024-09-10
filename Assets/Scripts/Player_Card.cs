@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player_Card : MonoBehaviour
@@ -12,6 +13,7 @@ public class Player_Card : MonoBehaviour
     [SerializeField, Header("カードの情報")] public List<CardData> _cards = new List<CardData>();
     [SerializeField, Header("cardのランク")] List<CardData.Rank> _cardRank = new List<CardData.Rank>();
     [SerializeField, Header("cardのスーツ")] List<CardData.Suit> _cardSuit = new List<CardData.Suit>();
+    HashSet<CardData> PtukattaCard = new HashSet<CardData>();
 
 
     [SerializeField, Header("カードの発生間隔")] private float _spawnInterval = 0.5f;
@@ -19,6 +21,10 @@ public class Player_Card : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     [SerializeField] private PokerHundJuge pokerHundJuge;
+
+    [SerializeField] private List<Slot1> slot1scripts = new List<Slot1>();
+
+    CardData _cardData;
 
 
     public IEnumerator SpawnCoroutine()
@@ -30,21 +36,30 @@ public class Player_Card : MonoBehaviour
             //_spawnIntervalの時間分だけ実行を待つ
             yield return new WaitForSeconds(_spawnInterval);
 
+
+            do
+            {
+                int randomIndex = Random.Range(0, _cards.Count);
+                _cardData = _cards[randomIndex];
+            } while (PtukattaCard.Contains(_cardData));
             //手札に来る絵柄をランダムにする
-            int randomIndex = Random.Range(0, _cards.Count);
-            CardData card = _cards[randomIndex];
-            spriteRenderer.sprite = card.sprite;
+           
+            spriteRenderer.sprite = _cardData.sprite;
 
             //現在の絵柄を入手する
-            _playerCardSpriteNow.Add(card.sprite);
-            pokerHundJuge._playerCardSpriteNow.Add(card.sprite);
+            _playerCardSpriteNow.Add(_cardData.sprite);
+            pokerHundJuge._playerCardSpriteNow.Add(_cardData.sprite);
 
             //現在のカードの情報を取得する
-            _cardRank.Add(card.rank);
-            _cardSuit.Add(card.suit);
-            pokerHundJuge._playerRankJuge.Add(card.rank);
-            pokerHundJuge._playerSuitJuge.Add(card.suit);
-            CardManager.AddSelectedCard(card);
+            _cardRank.Add(_cardData.rank);
+            _cardSuit.Add(_cardData.suit);
+            pokerHundJuge._playerRankJuge.Add(_cardData.rank);
+            pokerHundJuge._playerSuitJuge.Add(_cardData.suit);
+            CardManager.AddSelectedCard(_cardData);
+            foreach (var slot1 in slot1scripts)
+            {
+                slot1.AddDataHash(_cardData);
+            }
 
             //_playerCardに格納されているカードを_playerCardPosの場所に生成する
             GameObject newCard = Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
@@ -70,5 +85,7 @@ public class Player_Card : MonoBehaviour
         spriteRenderer = _playerCard.GetComponent<SpriteRenderer>();
         //ゲーム開始時に実行
         StartCoroutine(SpawnCoroutine());
+        slot1scripts = FindObjectsOfType<Slot1>().ToList();
+
     }
 }
