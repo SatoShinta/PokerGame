@@ -12,16 +12,18 @@ public class PokerHundJuge : MonoBehaviour
     [SerializeField, Header("スロットの絵柄")] public Sprite[] _slotSprite;
     [SerializeField, Header("スロットのrank")] public List<CardData.Rank> _slotRankJuge = new List<CardData.Rank>();
     [SerializeField, Header("スロットのsuit")] public List<CardData.Suit> _slotSuitJuge = new List<CardData.Suit>();
-    [SerializeField,Header("判定するためのリスト")] List<CardData> cardDatas = CardManager._selectedCards;
+    [SerializeField, Header("判定するためのリスト")] List<CardData> cardDatas = CardManager._selectedCards;
 
     SlotStopSprite _slotStopSprite;
-    Slot1 _slot1;
+    [SerializeField] private List<Slot1> slot1scripts = new List<Slot1>();
 
 
     private void Start()
     {
         //スロットがある分だけ配列を作る
         _slotSprite = new Sprite[slots.Length];
+
+        slot1scripts = FindObjectsOfType<Slot1>().ToList();
     }
 
     private void Update()
@@ -41,7 +43,7 @@ public class PokerHundJuge : MonoBehaviour
     public void HandCheck()
     {
         //プレイヤーの持っているカードとスロットのカードをまとめる処理
-        var cards = cardDatas.Select(card => new {card.rank, card.suit}).ToList();
+        var cards = cardDatas.Select(card => new { card.rank, card.suit }).ToList();
 
         //RoyalFlushか判定する処理
         bool RoyalFlush() => cards.Where(c => c.rank >= CardData.Rank.Ten && c.suit == cards[0].suit)
@@ -86,9 +88,9 @@ public class PokerHundJuge : MonoBehaviour
 
         if (RoyalFlush())
         {
-            Debug.Log( "ロイヤルストレートフラッシュ");
+            Debug.Log("ロイヤルストレートフラッシュ");
         }
-        else if (StraitFlush()) 
+        else if (StraitFlush())
         {
             Debug.Log("ストレートフラッシュ");
         }
@@ -126,7 +128,7 @@ public class PokerHundJuge : MonoBehaviour
         }
     }
 
-    
+
     public void RemoveListsJage()
     {
         _playerCardSpriteNow.Clear();
@@ -135,6 +137,10 @@ public class PokerHundJuge : MonoBehaviour
         _slotRankJuge.Clear();
         _slotSuitJuge.Clear();
         cardDatas.Clear();
+        foreach (var slot1 in slot1scripts)
+        {
+            slot1.RemoveDataHash();
+        }
     }
 
 

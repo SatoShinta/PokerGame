@@ -13,6 +13,8 @@ public class Slot1 : MonoBehaviour
     [SerializeField, Header("cardのランク")] public CardData.Rank _cardRank;
     [SerializeField, Header("cardのスーツ")] public CardData.Suit _cardSuit;
 
+    [SerializeField, Header("重複処理")] public HashSet<CardData> _serectedCards = new HashSet<CardData>();
+
     [SerializeField] private PokerHundJuge pokerHundJuge;
     CardData card;
 
@@ -42,23 +44,30 @@ public class Slot1 : MonoBehaviour
 
     public void GetCardData()
     {
-        if (CardManager.IsSelected(card))
+        do
         {
             int slotRandomIndex = Random.Range(0, _cards.Count);
             card = _cards[slotRandomIndex];
-            spriterenderer.sprite = card.sprite;
-            nowSprite = spriterenderer.sprite;
-            _cardRank = card.rank;
-            _cardSuit = card.suit;
-        }
-        else
-        {
-            CardManager.AddSelectedCard(card);
-            CardManager.AddEnemySelectedCard(card);
-            pokerHundJuge._slotRankJuge.Add(_cardRank);
-            pokerHundJuge._slotSuitJuge.Add(_cardSuit);
+        } while (_serectedCards.Contains(card));
 
-        }
+        _serectedCards.Add(card);
+
+
+        spriterenderer.sprite = card.sprite;
+        nowSprite = spriterenderer.sprite;
+        _cardRank = card.rank;
+        _cardSuit = card.suit;
+
+        CardManager.AddSelectedCard(card);
+        CardManager.AddEnemySelectedCard(card);
+        pokerHundJuge._slotRankJuge.Add(_cardRank);
+        pokerHundJuge._slotSuitJuge.Add(_cardSuit);
+
+    }
+
+    public void RemoveDataHash()
+    {
+        _serectedCards.Clear();
     }
 
 

@@ -1741,6 +1741,12 @@ MonoBehaviour:
   EnemyHundJuge: {fileID: 1798964564}
   Player_Card: {fileID: 534349248}
   Enemy_Card: {fileID: 1345587027}
+  Slot1s:
+  - {fileID: 754976896}
+  - {fileID: 1956492653}
+  - {fileID: 1339815702}
+  - {fileID: 1775182959}
+  - {fileID: 396761723}
 --- !u!4 &1941584094
 Transform:
   m_ObjectHideFlags: 0

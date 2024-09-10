@@ -5,16 +5,16 @@ public class SlotStop : MonoBehaviour
     [SerializeField, Header("スロット")] GameObject[] slots;
     public Animator[] slotAnimator;
     public int pushCounter;
-    [SerializeField]PokerHundJuge PokerHundJuge;
-    [SerializeField]Enemy_PokerHundJuge EnemyHundJuge;
-    [SerializeField]Player_Card Player_Card;
-    [SerializeField]Enemy_Card Enemy_Card;
+    [SerializeField] PokerHundJuge PokerHundJuge;
+    [SerializeField] Enemy_PokerHundJuge EnemyHundJuge;
+    [SerializeField] Player_Card Player_Card;
+    [SerializeField] Enemy_Card Enemy_Card;
 
 
     void Start()
     {
-       // Player_Card = GetComponent<Player_Card>();
-       // PokerHundJuge = GetComponent<PokerHundJuge>();
+        // Player_Card = GetComponent<Player_Card>();
+        // PokerHundJuge = GetComponent<PokerHundJuge>();
         //slotsの中にあるオブジェクトの分の配列を作成
         slotAnimator = new Animator[slots.Length];
 
@@ -60,6 +60,7 @@ public class SlotStop : MonoBehaviour
                     Enemy_Card.RemoveList();
                     PokerHundJuge.RemoveListsJage();
                     EnemyHundJuge.RemoveListsJage();
+                    
                     break;
                 case 7:
                     slotAnimator[0].Play("slot1");
