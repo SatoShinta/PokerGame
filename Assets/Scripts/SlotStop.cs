@@ -18,6 +18,7 @@ public class SlotStop : MonoBehaviour
     [SerializeField] ChipManager ChipManager;
     [SerializeField] PlayableDirector timeline;
     [SerializeField] FlagManagement FlagManagement;
+    [SerializeField] GameObject[] CardBuck;
 
     
 
@@ -61,6 +62,10 @@ public class SlotStop : MonoBehaviour
                             break;
                         case 3:
                             slotAnimator[4].Play("stop5");
+                            foreach( var cards  in CardBuck)
+                            {
+                                cards.SetActive(false);
+                            }
                             break;
                         case 4:
                             PokerHundJuge.GetHandRank();
@@ -72,6 +77,10 @@ public class SlotStop : MonoBehaviour
                             PokerHundJuge.CompareHands();
                             break;
                         case 5:
+                            foreach (var card in CardBuck)
+                            {
+                                card.SetActive(true);
+                            }
                             Player_Card.RemoveList();
                             Enemy_Card.RemoveList();
                             PokerHundJuge.RemoveListsJage();

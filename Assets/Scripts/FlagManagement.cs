@@ -6,7 +6,6 @@ using UnityEngine;
 public class FlagManagement : MonoBehaviour
 {
     public bool slotStart;
-    float slotEnd = 0;
 
     public void Start()
     {
@@ -16,9 +15,6 @@ public class FlagManagement : MonoBehaviour
     public void SlotFlag()
     {
         slotStart = true;
-        float timer = 0;
-        timer += Time.deltaTime;
-
     }
 
     public void SlotFlagFalse()
