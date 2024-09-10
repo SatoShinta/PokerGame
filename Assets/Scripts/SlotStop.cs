@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -11,12 +12,14 @@ public class SlotStop : MonoBehaviour
     public Animator[] slotAnimator;
     public Animator betAnimater;
     public int pushCounter;
+    public int tarnCounter;
     [SerializeField] PokerHundJuge PokerHundJuge;
     [SerializeField] Enemy_PokerHundJuge EnemyHundJuge;
     [SerializeField] Player_Card Player_Card;
     [SerializeField] Enemy_Card Enemy_Card;
     [SerializeField] ChipManager ChipManager;
     [SerializeField] PlayableDirector timeline;
+    [SerializeField] PlayableDirector gameEnd;
     [SerializeField] FlagManagement FlagManagement;
     [SerializeField] GameObject[] CardBuck;
 
@@ -87,8 +90,19 @@ public class SlotStop : MonoBehaviour
                             EnemyHundJuge.RemoveListsJage();
                             StartCoroutine(Player_Card.SpawnCoroutine());
                             StartCoroutine(Enemy_Card.SpawnCoroutine());
+                            if (ChipManager._maxPlayerChip == 0 || ChipManager._maxEnemyChip == 0)
+                            {
+                                WinnerCheck();
+                                UnityEngine.Debug.Log("end");
+                                break;
+                            }
                             break;
                         case 6:
+                            if (tarnCounter == 5)
+                            {
+                                WinnerCheck();
+                                UnityEngine.Debug.Log("end");
+                            }
                             slotAnimator[0].Play("slot1");
                             slotAnimator[1].Play("slot2");
                             slotAnimator[2].Play("slot3");
@@ -97,14 +111,16 @@ public class SlotStop : MonoBehaviour
                             // StartCoroutine(Player_Card.SpawnCoroutine());
                             // StartCoroutine(Enemy_Card.SpawnCoroutine());
                             pushCounter = 0;
+                            tarnCounter++;
                             break;
                     }
                
 
                 }
             }
-
         }
+
+       
     }
 
     public IEnumerator SlotAnim1()
@@ -117,6 +133,21 @@ public class SlotStop : MonoBehaviour
         slotAnimator[2].Play("stop3");
         yield return new WaitForSeconds(0.2f);
         betAnimater.Play("PBetTextUp");
+    }
+
+    public void WinnerCheck()
+    {
+        bool playerWin = ChipManager.ConpareChip();
+        if(playerWin)
+        {
+            PokerHundJuge.WinLose.text= ("Player Win");
+            gameEnd.Play();
+        }
+        else
+        {
+            PokerHundJuge.WinLose.text = ("Enemy Win");
+            gameEnd.Play();
+        }
     }
 
 

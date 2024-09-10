@@ -20,7 +20,7 @@ public class PokerHundJuge : MonoBehaviour
     [SerializeField] Enemy_PokerHundJuge Enemy_PokerHundJuge;
     [SerializeField] ChipManager chipManager;
     [SerializeField] Text Hundtext;
-    [SerializeField] Text WinLose;
+    [SerializeField] public Text WinLose;
 
     private void Start()
     {

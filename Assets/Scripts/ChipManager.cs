@@ -94,4 +94,9 @@ public class ChipManager : MonoBehaviour
         eInputField.text = string.Empty;
     }
    
+
+    public bool ConpareChip()
+    {
+        return _maxPlayerChip > _maxEnemyChip;
+    }
 }

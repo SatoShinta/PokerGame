@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class FlagManagement : MonoBehaviour
 {
-    public bool slotStart;
+    public bool slotStart = false;
 
     public void Start()
     {
-        slotStart = false;
+        
     }
 
     public void SlotFlag()
