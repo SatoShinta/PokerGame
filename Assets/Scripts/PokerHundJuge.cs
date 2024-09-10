@@ -39,8 +39,7 @@ public class PokerHundJuge : MonoBehaviour
     }
 
 
-    //役判定のメソッド
-    public void HandCheck()
+    public HandRank GetHandRank()
     {
         //プレイヤーの持っているカードとスロットのカードをまとめる処理
         var cards = PlayerCardDatas.Select(card => new { card.rank, card.suit }).ToList();
@@ -83,50 +82,181 @@ public class PokerHundJuge : MonoBehaviour
                          .SequenceEqual(new[] { 2, 2 });
 
         bool OnePair() => cards.GroupBy(c => c.rank)
-                         .Any(g => g.Count() >= 2);
+                         .Any(g => g.Count() == 2);
 
 
         if (RoyalFlush())
         {
-            Debug.Log("ロイヤルストレートフラッシュ");
+            return HandRank.RoyalFlush;
         }
         else if (StraitFlush())
         {
-            Debug.Log("ストレートフラッシュ");
+            return HandRank.StraightFlush;
         }
         else if (FourOfaKind())
         {
-            Debug.Log("フォーカード");
+            return HandRank.FourOfAKind;
         }
         else if (FullHouse())
         {
-            Debug.Log("フルハウス");
+            return HandRank.FullHouse;
         }
         else if (Flush())
         {
-            Debug.Log("フラッシュ");
+            return HandRank.Flush;
         }
         else if (Straight())
         {
-            Debug.Log("ストレート");
+            return HandRank.Straight;
         }
         else if (ThreeOfaKind())
         {
-            Debug.Log("スリーカード");
+            return HandRank.ThreeOfAKind;
         }
         else if (TowPair())
         {
-            Debug.Log("ツーペア");
+            return HandRank.TwoPair;
         }
         else if (OnePair())
         {
-            Debug.Log("ワンペア");
+            return HandRank.OnePair;
         }
         else
         {
-            Debug.Log("ノーペア");
+            return HandRank.HighCard;
+        }
+
+
+    }
+
+    public void HandCheck()
+    {
+
+        HandRank rank = GetHandRank();
+        switch (rank)
+        {
+            case HandRank.RoyalFlush:
+                Debug.Log("ロイヤルストレートフラッシュ");
+                break;
+            case HandRank.StraightFlush:
+                Debug.Log("ストレートフラッシュ");
+                break;
+            case HandRank.FourOfAKind:
+                Debug.Log("フォーカード");
+                break;
+            case HandRank.FullHouse:
+                Debug.Log("フルハウス");
+                break;
+            case HandRank.Flush:
+                Debug.Log("フラッシュ");
+                break;
+            case HandRank.Straight:
+                Debug.Log("ストレート");
+                break;
+            case HandRank.ThreeOfAKind:
+                Debug.Log("スリーカード");
+                break;
+            case HandRank.TwoPair:
+                Debug.Log("ツーペア");
+                break;
+            case HandRank.OnePair:
+                Debug.Log("ワンペア");
+                break;
+            default:
+                Debug.Log("ハイカード");
+                break;
         }
     }
+
+
+    //役判定のメソッド
+    //public void HandCheck()
+    //{
+    //    //プレイヤーの持っているカードとスロットのカードをまとめる処理
+    //    var cards = PlayerCardDatas.Select(card => new { card.rank, card.suit }).ToList();
+
+    //    //RoyalFlushか判定する処理
+    //    bool RoyalFlush() => cards.Where(c => c.rank >= CardData.Rank.Ten && c.suit == cards[0].suit)
+    //                            .OrderBy(c => (int)c.rank)
+    //                            .Take(5)
+    //                            .Select(c => (int)c.rank)
+    //                            .SequenceEqual(Enumerable.Range(10, 5));
+
+    //    bool StraitFlush() => cards.Where(c => c.suit == cards[0].suit
+    //                            && (int)c.rank >= (int)cards.Min(x => (x.rank))
+    //                            && (int)c.rank <= (int)cards.Min(x => (x.rank)) + 4)
+    //                           .Count() >= 5;
+
+    //    bool FullHouse() => cards.GroupBy(c => c.rank)
+    //                       .Select(g => g.Count())
+    //                       .OrderByDescending(x => x)
+    //                       .Take(2)
+    //                       .SequenceEqual(new[] { 3, 2 });
+
+    //    bool Flush() => cards.GroupBy(g => g.suit).Any(g => g.Count() >= 5);
+
+    //    bool Straight() => cards.Select(c => (int)c.rank)
+    //                      .OrderBy(x => x)
+    //                      .Distinct()
+    //                      .Count(x => Enumerable.Range(x, 5).All(rank => cards.Any(c => (int)c.rank == rank))) >= 5;
+
+    //    bool FourOfaKind() => cards.GroupBy(card => card.rank)
+    //                        .Any(g => g.Count() >= 4);
+
+    //    bool ThreeOfaKind() => cards.GroupBy(c => c.rank)
+    //                          .Any(g => g.Count() >= 3);
+
+    //    bool TowPair() => cards.GroupBy(c => c.rank)
+    //                     .Select(g => g.Count())
+    //                     .OrderByDescending(x => x)
+    //                     .Take(2)
+    //                     .SequenceEqual(new[] { 2, 2 });
+
+    //    bool OnePair() => cards.GroupBy(c => c.rank)
+    //                     .Any(g => g.Count() == 2);
+
+
+    //    if (RoyalFlush())
+    //    {
+    //        Debug.Log("ロイヤルストレートフラッシュ");
+    //    }
+    //    else if (StraitFlush())
+    //    {
+    //        Debug.Log("ストレートフラッシュ");
+    //    }
+    //    else if (FourOfaKind())
+    //    {
+    //        Debug.Log("フォーカード");
+    //    }
+    //    else if (FullHouse())
+    //    {
+    //        Debug.Log("フルハウス");
+    //    }
+    //    else if (Flush())
+    //    {
+    //        Debug.Log("フラッシュ");
+    //    }
+    //    else if (Straight())
+    //    {
+    //        Debug.Log("ストレート");
+    //    }
+    //    else if (ThreeOfaKind())
+    //    {
+    //        Debug.Log("スリーカード");
+    //    }
+    //    else if (TowPair())
+    //    {
+    //        Debug.Log("ツーペア");
+    //    }
+    //    else if (OnePair())
+    //    {
+    //        Debug.Log("ワンペア");
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("ノーペア");
+    //    }
+    //}
 
 
     public void RemoveListsJage()
@@ -144,5 +274,18 @@ public class PokerHundJuge : MonoBehaviour
     }
 
 
+    public enum HandRank
+    {
+        RoyalFlush,
+        StraightFlush,
+        FourOfAKind,
+        FullHouse,
+        Flush,
+        Straight,
+        ThreeOfAKind,
+        TwoPair,
+        OnePair,
+        HighCard
+    }
 
 }

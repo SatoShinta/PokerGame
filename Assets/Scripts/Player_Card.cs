@@ -26,6 +26,8 @@ public class Player_Card : MonoBehaviour
 
     CardData _cardData;
 
+    public bool _cardOk;
+
 
     public IEnumerator SpawnCoroutine()
     {
@@ -65,6 +67,9 @@ public class Player_Card : MonoBehaviour
             GameObject newCard = Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
             _playerCards.Add(newCard);
 
+            yield return new WaitForSeconds(0.5f);
+            _cardOk = true;
+
         }
     }
 
@@ -78,6 +83,7 @@ public class Player_Card : MonoBehaviour
             Destroy(card);
         }
         _playerCards.Clear();
+        _cardOk = false;
     }
 
     private void Start()
@@ -86,6 +92,11 @@ public class Player_Card : MonoBehaviour
         //ゲーム開始時に実行
         StartCoroutine(SpawnCoroutine());
         slot1scripts = FindObjectsOfType<Slot1>().ToList();
+
+    }
+
+    public void Update()
+    {
 
     }
 }

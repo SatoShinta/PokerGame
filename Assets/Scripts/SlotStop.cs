@@ -29,55 +29,65 @@ public class SlotStop : MonoBehaviour
 
     void Update()
     {
-        //スペースキーが押されたとき、
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Player_Card._cardOk == true)
         {
-            //pushCounterを＋１し、
-            pushCounter++;
-
-            //回数ごとに各スロットのアニメーションを再生する
-            switch (pushCounter)
+            //スペースキーが押されたとき、
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                case 1:
-                    slotAnimator[0].Play("stop1");
-                    break;
-                case 2:
-                    slotAnimator[1].Play("stop2");
-                    break;
-                case 3:
-                    slotAnimator[2].Play("stop3");
-                    break;
-                case 4:
-                    slotAnimator[3].Play("stop4");
-                    break;
-                case 5:
-                    slotAnimator[4].Play("stop5");
-                    PokerHundJuge.HandCheck();
-                    EnemyHundJuge.Enemy_HandCheck();
-                    break;
-                case 6:
-                    Player_Card.RemoveList();
-                    Enemy_Card.RemoveList();
-                    PokerHundJuge.RemoveListsJage();
-                    EnemyHundJuge.RemoveListsJage();
-                    
-                    break;
-                case 7:
-                    slotAnimator[0].Play("slot1");
-                    slotAnimator[1].Play("slot2");
-                    slotAnimator[2].Play("slot3");
-                    slotAnimator[3].Play("slot4");
-                    slotAnimator[4].Play("slot5");
-                    StartCoroutine(Player_Card.SpawnCoroutine());
-                    StartCoroutine(Enemy_Card.SpawnCoroutine());
-                    pushCounter = 0;
-                    break;
+                //pushCounterを＋１し、
+                pushCounter++;
 
+                //回数ごとに各スロットのアニメーションを再生する
+                switch (pushCounter)
+                {
+                    case 1:
+                        slotAnimator[0].Play("stop1");
+                        break;
+                    case 2:
+                        slotAnimator[1].Play("stop2");
+                        break;
+                    case 3:
+                        slotAnimator[2].Play("stop3");
+                        break;
+                    case 4:
+                        slotAnimator[3].Play("stop4");
+                        break;
+                    case 5:
+                        slotAnimator[4].Play("stop5");
+                        PokerHundJuge.HandCheck();
+                        PokerHundJuge.GetHandRank();
+                        EnemyHundJuge.Enemy_GetHandRank();
+                        EnemyHundJuge.Enemy_HandCheck();
+                        break;
+                    case 6:
+                        Player_Card.RemoveList();
+                        Enemy_Card.RemoveList();
+                        PokerHundJuge.RemoveListsJage();
+                        EnemyHundJuge.RemoveListsJage();
+                        StartCoroutine(Player_Card.SpawnCoroutine());
+                        StartCoroutine(Enemy_Card.SpawnCoroutine());
+                        break;
+                    case 7:
+                        slotAnimator[0].Play("slot1");
+                        slotAnimator[1].Play("slot2");
+                        slotAnimator[2].Play("slot3");
+                        slotAnimator[3].Play("slot4");
+                        slotAnimator[4].Play("slot5");
+                       // StartCoroutine(Player_Card.SpawnCoroutine());
+                       // StartCoroutine(Enemy_Card.SpawnCoroutine());
+                        pushCounter = 0;
+                        break;
+
+                }
             }
+
+
+
+
+
+
+
+
         }
-
     }
-
-
-
 }
