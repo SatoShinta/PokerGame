@@ -13,7 +13,7 @@ public class Player_Card : MonoBehaviour
     [SerializeField, Header("カードの情報")] public List<CardData> _cards = new List<CardData>();
     [SerializeField, Header("cardのランク")] List<CardData.Rank> _cardRank = new List<CardData.Rank>();
     [SerializeField, Header("cardのスーツ")] List<CardData.Suit> _cardSuit = new List<CardData.Suit>();
-    HashSet<CardData> PtukattaCard = new HashSet<CardData>();
+    public static HashSet<CardData> tukattaCard = new HashSet<CardData>();
 
 
     [SerializeField, Header("カードの発生間隔")] private float _spawnInterval = 0.5f;
@@ -43,9 +43,11 @@ public class Player_Card : MonoBehaviour
             {
                 int randomIndex = Random.Range(0, _cards.Count);
                 _cardData = _cards[randomIndex];
-            } while (PtukattaCard.Contains(_cardData));
+            } while (Slot1._serectedCards.Contains(_cardData));
             //手札に来る絵柄をランダムにする
-           
+
+            Slot1._serectedCards.Add(_cardData);
+
             spriteRenderer.sprite = _cardData.sprite;
 
             //現在の絵柄を入手する
@@ -67,10 +69,9 @@ public class Player_Card : MonoBehaviour
             GameObject newCard = Instantiate(_playerCard, pos.transform.position, Quaternion.identity);
             _playerCards.Add(newCard);
 
-            yield return new WaitForSeconds(0.5f);
-            _cardOk = true;
-
         }
+        yield return new WaitForSeconds(0.5f);
+        _cardOk = true;
     }
 
     public void RemoveList()
@@ -95,8 +96,5 @@ public class Player_Card : MonoBehaviour
 
     }
 
-    public void Update()
-    {
-
-    }
+   
 }

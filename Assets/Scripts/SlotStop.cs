@@ -54,12 +54,16 @@ public class SlotStop : MonoBehaviour
                         break;
                     case 5:
                         slotAnimator[4].Play("stop5");
-                        PokerHundJuge.HandCheck();
+
+                        break;
+                    case 6:
                         PokerHundJuge.GetHandRank();
+                        PokerHundJuge.HandCheck();
                         EnemyHundJuge.Enemy_GetHandRank();
                         EnemyHundJuge.Enemy_HandCheck();
                         break;
-                    case 6:
+                    case 7:
+
                         Player_Card.RemoveList();
                         Enemy_Card.RemoveList();
                         PokerHundJuge.RemoveListsJage();
@@ -67,14 +71,14 @@ public class SlotStop : MonoBehaviour
                         StartCoroutine(Player_Card.SpawnCoroutine());
                         StartCoroutine(Enemy_Card.SpawnCoroutine());
                         break;
-                    case 7:
+                    case 8:
                         slotAnimator[0].Play("slot1");
                         slotAnimator[1].Play("slot2");
                         slotAnimator[2].Play("slot3");
                         slotAnimator[3].Play("slot4");
                         slotAnimator[4].Play("slot5");
-                       // StartCoroutine(Player_Card.SpawnCoroutine());
-                       // StartCoroutine(Enemy_Card.SpawnCoroutine());
+                        // StartCoroutine(Player_Card.SpawnCoroutine());
+                        // StartCoroutine(Enemy_Card.SpawnCoroutine());
                         pushCounter = 0;
                         break;
 
