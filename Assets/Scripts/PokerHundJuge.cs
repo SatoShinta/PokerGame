@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PokerHundJuge : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PokerHundJuge : MonoBehaviour
     [SerializeField] private List<Slot1> slot1scripts = new List<Slot1>();
     [SerializeField] Enemy_PokerHundJuge Enemy_PokerHundJuge;
     [SerializeField] ChipManager chipManager;
+    [SerializeField] Text Hundtext;
 
     private void Start()
     {
@@ -137,34 +139,34 @@ public class PokerHundJuge : MonoBehaviour
         switch (rank)
         {
             case HandRank.RoyalFlush:
-                Debug.Log("ロイヤルストレートフラッシュ");
+                Hundtext.text =("ロイヤルストレートフラッシュ");
                 break;
             case HandRank.StraightFlush:
-                Debug.Log("ストレートフラッシュ");
+                Hundtext.text =("ストレートフラッシュ");
                 break;
             case HandRank.FourOfAKind:
-                Debug.Log("フォーカード");
+                Hundtext.text =("フォーカード");
                 break;
             case HandRank.FullHouse:
-                Debug.Log("フルハウス");
+                Hundtext.text = ("フルハウス");
                 break;
             case HandRank.Flush:
-                Debug.Log("フラッシュ");
+                Hundtext.text = ("フラッシュ");
                 break;
             case HandRank.Straight:
-                Debug.Log("ストレート");
+                Hundtext.text = ("ストレート");
                 break;
             case HandRank.ThreeOfAKind:
-                Debug.Log("スリーカード");
+                Hundtext.text = ("スリーカード");
                 break;
             case HandRank.TwoPair:
-                Debug.Log("ツーペア");
+                Hundtext.text = ("ツーペア");
                 break;
             case HandRank.OnePair:
-                Debug.Log("ワンペア");
+                Hundtext.text = ("ワンペア");
                 break;
             default:
-                Debug.Log("ハイカード");
+                Hundtext.text = ("ハイカード");
                 break;
         }
     }

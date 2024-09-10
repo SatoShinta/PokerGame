@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Playables;
 using static CardData;
 
 public class SlotStop : MonoBehaviour
@@ -15,6 +16,7 @@ public class SlotStop : MonoBehaviour
     [SerializeField] Player_Card Player_Card;
     [SerializeField] Enemy_Card Enemy_Card;
     [SerializeField] ChipManager ChipManager;
+    [SerializeField] PlayableDirector timeline;
 
     
 
@@ -63,8 +65,9 @@ public class SlotStop : MonoBehaviour
                             PokerHundJuge.GetHandRank();
                             PokerHundJuge.HandCheck();
                             EnemyHundJuge.Enemy_GetHandRank();
-                            EnemyHundJuge.Enemy_HandCheck();
 
+                            EnemyHundJuge.Enemy_HandCheck();
+                            timeline.Play();
                             PokerHundJuge.CompareHands();
                             break;
                         case 5:

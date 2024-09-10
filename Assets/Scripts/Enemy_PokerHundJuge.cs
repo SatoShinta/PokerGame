@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy_PokerHundJuge : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class Enemy_PokerHundJuge : MonoBehaviour
     [SerializeField, Header("スロットの絵柄")] public Sprite[] _slotSprite;
     [SerializeField, Header("スロットのrank")] public List<CardData.Rank> _slotRankJuge = new List<CardData.Rank>();
     [SerializeField, Header("スロットのsuit")] public List<CardData.Suit> _slotSuitJuge = new List<CardData.Suit>();
-    [SerializeField,Header("判定するためのリスト")] public List<CardData> enemyCardDatas = CardManager._EnemyselectedCards;
+    [SerializeField, Header("判定するためのリスト")] public List<CardData> enemyCardDatas = CardManager._EnemyselectedCards;
+    [SerializeField] public Text HundText;
+
 
     SlotStopSprite _slotStopSprite;
     Slot1 _slot1;
@@ -134,34 +137,34 @@ public class Enemy_PokerHundJuge : MonoBehaviour
         switch (rank)
         {
             case HandRank.RoyalFlush:
-                Debug.Log("ロイヤルストレートフラッシュ");
+                HundText.text = "ロイヤルストレートフラッシュ";
                 break;
             case HandRank.StraightFlush:
-                Debug.Log("ストレートフラッシュ");
+                HundText.text = ("ストレートフラッシュ");
                 break;
             case HandRank.FourOfAKind:
-                Debug.Log("フォーカード");
+                HundText.text = ("フォーカード");
                 break;
             case HandRank.FullHouse:
-                Debug.Log("フルハウス");
+                HundText.text = ("フルハウス");
                 break;
             case HandRank.Flush:
-                Debug.Log("フラッシュ");
+                HundText.text = ("フラッシュ");
                 break;
             case HandRank.Straight:
-                Debug.Log("ストレート");
+                HundText.text = ("ストレート");
                 break;
             case HandRank.ThreeOfAKind:
-                Debug.Log("スリーカード");
+                HundText.text = ("スリーカード");
                 break;
             case HandRank.TwoPair:
-                Debug.Log("ツーペア");
+                HundText.text = ("ツーペア");
                 break;
             case HandRank.OnePair:
-                Debug.Log("ワンペア");
+                HundText.text = ("ワンペア");
                 break;
             default:
-                Debug.Log("ハイカード");
+                HundText.text = ("ハイカード");
                 break;
         }
     }
