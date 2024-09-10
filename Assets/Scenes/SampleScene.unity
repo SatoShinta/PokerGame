@@ -422,7 +422,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137705283}
-  - component: {fileID: 137705282}
   m_Layer: 0
   m_Name: FalgManager
   m_TagString: Untagged
@@ -430,19 +429,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &137705282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137705281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a8ff3f2c1901847843c0f802a5bc28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotStart: 0
 --- !u!4 &137705283
 Transform:
   m_ObjectHideFlags: 0
@@ -1436,6 +1422,7 @@ GameObject:
   - component: {fileID: 498119908}
   - component: {fileID: 498119907}
   - component: {fileID: 498119909}
+  - component: {fileID: 498119910}
   m_Layer: 5
   m_Name: EnemyHund
   m_TagString: Untagged
@@ -1459,7 +1446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: -1338, y: 200}
   m_SizeDelta: {x: 897.5127, y: 178.78998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498119907
@@ -1484,7 +1471,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 125
+    m_FontSize: 120
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -1525,6 +1512,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &498119910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498119905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b292ac87ab61d45bd3665dd101591c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: []
+  _enemyCardSpriteNow: []
+  _enemyplayerRankJuge: 
+  _enemyplayerSuitJuge: 
+  _slotSprite: []
+  _slotRankJuge: 
+  _slotSuitJuge: 
+  enemyCardDatas: []
+  HundText: {fileID: 498119907}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,7 +2891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a8ff3f2c1901847843c0f802a5bc28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotStart: 1
+  slotStart: 0
 --- !u!1 &1214379585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3633,6 +3641,7 @@ GameObject:
   - component: {fileID: 1345725851}
   - component: {fileID: 1345725850}
   - component: {fileID: 1345725852}
+  - component: {fileID: 1345725853}
   m_Layer: 5
   m_Name: PlayerHund
   m_TagString: Untagged
@@ -3656,7 +3665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchoredPosition: {x: 1378, y: -200}
   m_SizeDelta: {x: 897.5127, y: 178.78998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345725850
@@ -3681,7 +3690,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 125
+    m_FontSize: 120
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -3722,6 +3731,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1345725853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345725848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858bf817dff88ba418612796262c1dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: []
+  _playerCardSpriteNow: []
+  _playerRankJuge: 
+  _playerSuitJuge: 
+  _slotSprite: []
+  _slotRankJuge: 
+  _slotSuitJuge: 
+  PlayerCardDatas: []
+  slot1scripts: []
+  Enemy_PokerHundJuge: {fileID: 0}
+  chipManager: {fileID: 0}
+  Hundtext: {fileID: 1345725850}
+  WinLose: {fileID: 0}
 --- !u!1 &1392401835
 GameObject:
   m_ObjectHideFlags: 0
