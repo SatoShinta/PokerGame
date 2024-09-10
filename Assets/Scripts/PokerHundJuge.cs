@@ -17,6 +17,7 @@ public class PokerHundJuge : MonoBehaviour
     SlotStopSprite _slotStopSprite;
     [SerializeField] private List<Slot1> slot1scripts = new List<Slot1>();
     [SerializeField] Enemy_PokerHundJuge Enemy_PokerHundJuge;
+    [SerializeField] ChipManager chipManager;
 
     private void Start()
     {
@@ -191,14 +192,24 @@ public class PokerHundJuge : MonoBehaviour
         if ((int)playerHandRank > (int)enemyHandRank)
         {
             Debug.Log("ÉvÉåÉCÉÑÅ[Win");
+            chipManager._maxPlayerChip += chipManager.eTotalAmount;
+            chipManager.pTotalAmount = 0;
+            chipManager.eTotalAmount = 0;
         }
         else if ((int)playerHandRank < (int)enemyHandRank)
         {
             Debug.Log("ìGWin");
+            chipManager._maxEnemyChip += chipManager.pTotalAmount;
+            chipManager.pTotalAmount = 0;
+            chipManager.eTotalAmount = 0;
         }
         else
         {
             Debug.Log("Drow");
+            chipManager._maxPlayerChip += chipManager.pTotalAmount;
+            chipManager._maxEnemyChip += chipManager.eTotalAmount;
+            chipManager.pTotalAmount = 0;
+            chipManager.eTotalAmount = 0;
         }
     }
 
