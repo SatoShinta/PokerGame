@@ -15,7 +15,6 @@ public class ChipManager : MonoBehaviour
     [SerializeField] Slider pSlider;
     [SerializeField] Slider eSlider;
     [SerializeField] InputField pInputField;
-    [SerializeField] InputField eInputField;
     [SerializeField] Text PlayerChipText;
     [SerializeField] Text PlayerRestChipText;
     [SerializeField] Text CoutionText;
@@ -69,7 +68,19 @@ public class ChipManager : MonoBehaviour
         int betAmount;
         if (_betChips == true)
         {
-            betAmount = Random.Range(10, _maxEnemyChip +1);
+            if(_maxEnemyChip <= 100)
+            {
+                betAmount = _maxEnemyChip;
+                eTotalAmount += betAmount;
+                _maxEnemyChip -= betAmount;
+                EnemyChipText.text = "賭けたチップ\n" + eTotalAmount.ToString();
+                EUpdateUI();
+            }
+            else
+            {
+                betAmount = Random.Range(100,_maxEnemyChip + 1);
+            }
+
             eTotalAmount += betAmount;
             _maxEnemyChip -= betAmount;
             EnemyChipText.text = "賭けたチップ\n" + eTotalAmount.ToString();
@@ -91,7 +102,6 @@ public class ChipManager : MonoBehaviour
     public void EUpdateUI()
     {
         eSlider.value = _maxEnemyChip;
-        eInputField.text = string.Empty;
     }
    
 
