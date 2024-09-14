@@ -33,10 +33,8 @@ public class SlotStop : MonoBehaviour
         slotAnimator = new Animator[slots.Length];
 
         //slotsがある分for文を回す（配列の中にあるオブジェクトのアニメーターを取得）
-        for (int i = 0; i < slots.Length; i++)
-        {
-            slotAnimator[i] = slots[i].GetComponent<Animator>();
-        }
+        slotAnimator = slots.Select(slot => slot.GetComponent<Animator>()).ToArray();
+
         //pushCounterの初期化
         pushCounter = 0;
     }
