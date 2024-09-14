@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ChipManager : MonoBehaviour
 {
@@ -36,10 +37,10 @@ public class ChipManager : MonoBehaviour
 
     public void Update()
     {
-        PlayerChipText.text = "賭けたチップ\n" + pTotalAmount.ToString();
-        PlayerRestChipText.text = "残りチップ\n" + _maxPlayerChip;
-        EnemyChipText.text = "賭けたチップ\n" + eTotalAmount.ToString();
-        EnemyRestChipText.text = _maxEnemyChip + "\n残りチップ";
+        //PlayerChipText.text = "賭けたチップ\n" + pTotalAmount.ToString();
+        //PlayerRestChipText.text = "残りチップ\n" + _maxPlayerChip;
+        //EnemyChipText.text = "賭けたチップ\n" + eTotalAmount.ToString();
+        //EnemyRestChipText.text = _maxEnemyChip + "\n残りチップ";
     }
 
     public void PlayerChipsDecision()
@@ -50,7 +51,8 @@ public class ChipManager : MonoBehaviour
         {
             pTotalAmount += betAmount;
             _maxPlayerChip -= betAmount;
-            PlayerChipText.text = "賭けたチップ\n" +  pTotalAmount.ToString();
+            DOTween.To(() => PlayerChipText.text, x => PlayerChipText.text = x, "賭けたチップ\n" + pTotalAmount.ToString(), 2f);
+            // PlayerChipText.text = "賭けたチップ\n" +  pTotalAmount.ToString();
             PUpdateUI();
             _Animator.Play("PBetTextDown");
             EnemyChipsDecision();
@@ -73,7 +75,7 @@ public class ChipManager : MonoBehaviour
                 betAmount = _maxEnemyChip;
                 eTotalAmount += betAmount;
                 _maxEnemyChip -= betAmount;
-                EnemyChipText.text = "賭けたチップ\n" + eTotalAmount.ToString();
+                DOTween.To(() => EnemyChipText.text, x => EnemyChipText.text = x, "賭けたチップ\n" + eTotalAmount.ToString(), 2f);
                 EUpdateUI();
             }
             else
@@ -83,7 +85,8 @@ public class ChipManager : MonoBehaviour
 
             eTotalAmount += betAmount;
             _maxEnemyChip -= betAmount;
-            EnemyChipText.text = "賭けたチップ\n" + eTotalAmount.ToString();
+            DOTween.To(() => EnemyChipText.text, x => EnemyChipText.text = x, "賭けたチップ\n" + eTotalAmount.ToString(), 2f);
+            //EnemyChipText.text = "賭けたチップ\n" + eTotalAmount.ToString();
             EUpdateUI();
             _betChips = false;
         }
@@ -97,13 +100,17 @@ public class ChipManager : MonoBehaviour
     {
         pSlider.value = _maxPlayerChip;
         pInputField.text = string.Empty;
+        DOTween.To(() => PlayerChipText.text, x => PlayerChipText.text = x, "賭けたチップ\n" + pTotalAmount.ToString(), 2f);
+
     }
 
     public void EUpdateUI()
     {
         eSlider.value = _maxEnemyChip;
+        DOTween.To(() => EnemyChipText.text, x => EnemyChipText.text = x, "賭けたチップ\n" + eTotalAmount.ToString(), 2f);
+
     }
-   
+
 
     public bool ConpareChip()
     {
